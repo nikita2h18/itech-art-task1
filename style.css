@@ -267,6 +267,7 @@ body {
     min-height: 188px;
 
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
@@ -346,7 +347,7 @@ body {
 }
 
 .subscribe_button {
-    background-color: rgb(32, 38, 40);
+    background-image: url("assets/subcribe.png");
     width: 120px;
     height: 41px;
     font-size: 15px;
@@ -370,6 +371,7 @@ body {
 
 .contact {
     display: flex;
+    flex-wrap: wrap;
     background: white;
     justify-content: space-between;
     padding-bottom: 60px;
