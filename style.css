@@ -346,7 +346,7 @@ body {
 }
 
 .subscribe_button {
-    background-color: rgb(32, 38, 40);
+    background-image: url("assets/subcribe.png");
     width: 120px;
     height: 41px;
     font-size: 15px;
