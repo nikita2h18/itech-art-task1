@@ -4,35 +4,41 @@
     <meta charset="UTF-8">
     <title>Test Page</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="normalize.css">
 </head>
 <body>
-<!-- Use semantic html5 tags -->
-<!-- better naming, e.x. you use toolbar for block without any tools -->
-<div class="toolbar">
-    <header class="container"> <!-- <-- this is not a header it just content in it -->
-        <div class="toolbar__menu">
-            <div class="site-name">SITE NAME</div>
-            <div class="toolbar__menu-items">
-                <div class="menu_item">HOME</div> <!-- why it is not an element of nav? and why it is not an "a" tag? -->
-                <div class="menu_item">ABOUT</div>
-                <div class="menu_item">SERVICES</div>
-                <div class="menu_item">PORTFOLIO</div>
-                <div class="menu_item">CONTACT</div>
-            </div>
-        </div>
-    </header>
-</div>
+<header class="header">
+    <div class="header__items container">
+        <div class="site-name">SITE NAME</div>
+        <nav class="menu justify-content_flex-end">
+            <ul class="menu__item">
+                <a class="menu__link" href="#">HOME</a>
+            </ul>
+            <ul class="menu__item">
+                <a class="menu__link" href="#">ABOUT</a>
+            </ul>
+            <ul class="menu__item">
+                <a class="menu__link" href="#">SERVICES</a>
+            </ul>
+            <ul class="menu__item">
+                <a class="menu__link" href="#">PORTFOLIO</a>
+            </ul>
+            <ul class="menu__item">
+                <a class="menu__link" href="#">CONTACT</a>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-<!-- hero section -->
-<div class="banner">
-    <div class="banner__items container">
-        <img class="banner__icon" src="assets/cir.png" alt="icon"/>
-        <div class="banner__info">
-            <a>Clivuam Tinc <!-- why it is an "a" tag? -->
-                <br>Nunc Difnissim Risus id Metus
-            </a>
-            <!-- this is just not BEM -->
-            <a class="banner__info__link" href="http://wallpaperswide.com/">http://wallpaperswide.com/</a>
+<div class="hero">
+    <div class="hero__items container">
+        <img class="hero__icon" src="assets/cir.png" alt="icon"/>
+        <div class="hero__info">
+            <div>
+                Clivuam Tinc<br>
+                Nunc Difnissim Risus id Metus
+            </div>
+            <a class="hero__link" href="http://wallpaperswide.com/">http://wallpaperswide.com/</a>
         </div>
     </div>
 </div>
@@ -128,10 +134,12 @@
 </div>
 <!-- why "block" uses margin property? it is not its responsibility to change surrounding -->
 <div class="subscription">
-    <div class="label container"> <!-- move color to variable, create separate block for such case (image on the left, content on the right) -->
+    <div class="label container">
+        <!-- move color to variable, create separate block for such case (image on the left, content on the right) -->
         <div class="label__example">
             <img class="label__example_img" src="assets/people.png" alt="people"/>
-            <div class="label__example_content"> <!-- why not just margin-bottom? (why flex-column justify-content-between?) -->
+            <div class="label__example_content">
+                <!-- why not just margin-bottom? (why flex-column justify-content-between?) -->
                 <div class="content_head">
                     Donec nec justo eget
                 </div>
@@ -206,7 +214,8 @@
                 <input class="question_query" type="text" value="your query ...">
             </label>
             <div>
-                <button class="send"></button> <!-- naming https://ru.bem.info/methodology/quick-start/#%D0%B1%D0%BB%D0%BE%D0%BA, it shouldn`t change surroundings as it just a block -->
+                <button class="send"></button>
+                <!-- naming https://ru.bem.info/methodology/quick-start/#%D0%B1%D0%BB%D0%BE%D0%BA, it shouldn`t change surroundings as it just a block -->
             </div>
         </form>
     </div>
@@ -250,7 +259,7 @@
 <div class="footer">
     <footer class="information container">
         <div class="footer__text">
-            <div class="menu">
+            <div class="header__items">
                 <a class="menu_link">Home</a>
                 <div class="slash">/</div> <!-- why it changes surroundings? -->
                 <a class="menu_link">About</a>
@@ -263,11 +272,13 @@
             </div>
             <div class="designer">
                 <a class="designer_text  red">Designed by: www.alltemplateneeds.com /</a> <!-- naming... -->
-                <a class="designer_text  white">Images from: www.wallpaperswide.com/Copyriight(c) website name.</a> <!-- it`s not even white -->
+                <a class="designer_text  white">Images from: www.wallpaperswide.com/Copyriight(c) website name.</a>
+                <!-- it`s not even white -->
             </div>
         </div>
         <div class="pages">
-            <img class="pages_icon" src="assets/facebook.png" height="43" width="43" alt="facebook"/> <!-- unnecessary margin-left for first element -->
+            <img class="pages_icon" src="assets/facebook.png" height="43" width="43" alt="facebook"/>
+            <!-- unnecessary margin-left for first element -->
             <img class="pages_icon" src="assets/twitter.png" height="43" width="43" alt="twitter"/>
             <img class="pages_icon" src="assets/inst.png" height="43" width="43" alt="inst"/>
         </div>

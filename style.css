@@ -16,10 +16,10 @@
 
 /* It would be better and simpler just list hex values here, e.x. #c3c3c3 */
 :root {
-    --gray: 39, 43, 44;
-    --light-gray: 230, 230, 230;
-    --red: 202, 77, 64;
-    --white: 231, 231, 231;
+    --gray: rgb(39, 43, 44);
+    --light-gray: rgb(230, 230, 230);
+    --red: rgb(202, 77, 64);
+    --white: rgb(231, 231, 231);
 }
 
 body {
@@ -38,22 +38,19 @@ body {
 }
 
 .border {
-    border-top: 1px solid rgb(var(--light-gray));
-    border-bottom: 1px solid rgb(var(--light-gray));
-
-    margin-top: 30px;
-    margin-bottom: 30px;
+    border-top: 1px solid var(--light-gray);
+    border-bottom: 1px solid var(--light-gray);
 }
 
-.toolbar {
-    background-color: rgb(var(--gray));
+.header {
+    background-color: var(--gray);
 }
 
-.toolbar__menu {
+.header__items {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: rgb(var(--gray));
+    background-color: var(--gray);
     min-height: 80px;
     width: auto;
 }
@@ -65,34 +62,38 @@ body {
     font-size: 25px;
     font-family: FjallaOne, sans-serif;
     line-height: 1.2;
-    color: rgb(var(--white));
+    color: var(--white);
 }
 
-.toolbar__menu-items {
+.justify-content_flex-end {
     display: flex;
     justify-content: flex-end;
 }
 
-.menu_item {
+.menu__item {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: left;
-
-    color: rgb(var(--white));
-    font-family: FjallaOne, sans-serif;
-    font-size: 13px;
-    padding: 0 22px;
-    line-height: 1.2;
-    height: 80px;
+    margin: 0;
+    padding: 0;
 }
 
-.menu_item:hover {
+.menu__item:hover {
     background-color: var(--red);
     cursor: pointer;
 }
 
-.banner {
+.menu__link {
+    text-decoration: none;
+    color: white;
+    font-family: FjallaOne, sans-serif;
+    font-size: 13px;
+    padding: 0 22px;
+    line-height: 1.2;
+}
+
+.hero {
     max-height: 495px;
     background-image: url("assets/layer.png");
     background-position: center center;
@@ -100,7 +101,7 @@ body {
     padding-bottom: 65px;
 }
 
-.banner__items {
+.hero__items {
     height: 496px;
     display: flex;
     flex-direction: column;
@@ -108,28 +109,29 @@ body {
 
 }
 
-.banner__icon {
+.hero__icon {
     width: 70px;
     height: 70px;
     margin-bottom: 20px;
 }
 
-.banner__info {
+.hero__info {
     display: flex;
     flex-direction: column;
     font-size: 31px;
     font-family: FjallaOne, sans-serif;
-    color: rgb(var(--white));
+    color: var(--white);
     text-transform: uppercase;
     line-height: 1.6;
     letter-spacing: 3px;
     text-align: left;
+    margin: 0;
 }
 
-.banner__info__link { /* no :visited selector */
+.hero__link { /* no :visited selector */
     font-size: 15px;
     font-family: FjallaOne, sans-serif;
-    color: rgb(var(--red));
+    color: var(--red);
     text-transform: lowercase;
     line-height: 1.2;
     letter-spacing: 1px;
@@ -137,7 +139,7 @@ body {
 }
 
 .row-1 {
-    background-color: rgb(var(--light-gray));
+    background-color: var(--light-gray);
 }
 
 .row-1__list {
@@ -181,7 +183,7 @@ body {
 }
 
 .link {
-    color: rgb(var(--red));
+    color: var(--red);
     text-decoration: none;
 }
 
@@ -205,7 +207,7 @@ body {
 .title {
     font-size: 20px;
     font-family: Lato, sans-serif;
-    color: rgb(var(--red));
+    color: var(--red);
     line-height: 1.2;
     text-align: left;
     padding: 6px 0;
@@ -396,13 +398,13 @@ body {
     text-align: left;
     background-color: white;
     padding-bottom: 30px;
-    border-bottom: 1px solid rgb(var(--light-gray));
+    border-bottom: 1px solid var(--light-gray);
 }
 
 .table {
     display: flex;
     flex-grow: 1;
-    border-bottom: 1px solid rgb(var(--light-gray));
+    border-bottom: 1px solid var(--light-gray);
     padding-top: 30px;
     padding-bottom: 30px;
     height: 71px;
@@ -528,7 +530,7 @@ body {
 }
 
 .footer {
-    background-color: rgb(var(--gray));
+    background-color: var(--gray);
     padding-top: 80px;
     padding-bottom: 80px;
 }
@@ -538,22 +540,15 @@ body {
     justify-content: space-between;
 }
 
-.menu {
+.header__items {
     display: flex;
 }
 
-.menu_link {
-    font-size: 14px;
-    font-family: Lato, sans-serif;
-    color: rgb(231, 231, 231);
-    line-height: 1.2;
-    text-align: left;
-}
 
 .red {
     font-size: 14px;
     font-family: Lato, sans-serif;
-    color: rgb(var(--red));
+    color: var(--red);
     line-height: 1.714;
     text-align: left;
 }
