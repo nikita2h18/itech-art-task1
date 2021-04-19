@@ -6,12 +6,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<!-- Use semantic html5 tags -->
+<!-- better naming, e.x. you use toolbar for block without any tools -->
 <div class="toolbar">
-    <header class="container">
+    <header class="container"> <!-- <-- this is not a header it just content in it -->
         <div class="toolbar__menu">
             <div class="site-name">SITE NAME</div>
             <div class="toolbar__menu-items">
-                <div class="menu_item">HOME</div>
+                <div class="menu_item">HOME</div> <!-- why it is not an element of nav? and why it is not an "a" tag? -->
                 <div class="menu_item">ABOUT</div>
                 <div class="menu_item">SERVICES</div>
                 <div class="menu_item">PORTFOLIO</div>
@@ -21,21 +23,24 @@
     </header>
 </div>
 
+<!-- hero section -->
 <div class="banner">
     <div class="banner__items container">
         <img class="banner__icon" src="assets/cir.png" alt="icon"/>
         <div class="banner__info">
-            <a>Clivuam Tinc
+            <a>Clivuam Tinc <!-- why it is an "a" tag? -->
                 <br>Nunc Difnissim Risus id Metus
             </a>
+            <!-- this is just not BEM -->
             <a class="banner__info__link" href="http://wallpaperswide.com/">http://wallpaperswide.com/</a>
         </div>
     </div>
 </div>
 
+<!-- naming... -->
 <div class="row-1">
     <div class="row-1__list container">
-        <div class="row-1__list_item col">
+        <div class="row-1__list_item col"> <!-- why it is not a separate block? -->
             <img class="row-1__icon" src="assets/rocket.png" alt="rocket"/>
             <div class="list__item_text">
                 <a class="heading">Aliquam tincidunt</a>
@@ -81,7 +86,7 @@
             <div class="title border">
                 Civamus vestibulum nulla nec ante
             </div>
-            <div class="list">
+            <div class="list"> <!-- create separate block for such styles -->
                 <div class="info">
                     <div>
                         <div class="info__text fat">
@@ -115,17 +120,18 @@
                     <button class="button">MORE</button>
                 </div>
             </div>
-        </div>
+        </div> <!-- news__items modifier cannot be applied outside of news__items element -->
         <div class="news__items_image">
             <img src="assets/circle.png" alt="circle"/>
         </div>
     </div>
 </div>
+<!-- why "block" uses margin property? it is not its responsibility to change surrounding -->
 <div class="subscription">
-    <div class="label container">
+    <div class="label container"> <!-- move color to variable, create separate block for such case (image on the left, content on the right) -->
         <div class="label__example">
             <img class="label__example_img" src="assets/people.png" alt="people"/>
-            <div class="label__example_content">
+            <div class="label__example_content"> <!-- why not just margin-bottom? (why flex-column justify-content-between?) -->
                 <div class="content_head">
                     Donec nec justo eget
                 </div>
@@ -148,7 +154,7 @@
     </div>
 </div>
 <div class="contact container">
-    <div class="contact__people">
+    <div class="contact__people"> <!-- move to separate block with 1 rule set -->
         <div class="contact__header">
             Aliquam tincidunt
         </div>
@@ -185,7 +191,7 @@
             Nunc dignissim risu
         </div>
 
-        <form class="question__form">
+        <form class="question__form"> <!-- why flex-column? -->
             <div class="question__form_description">
                 Sed egestas, ante et vulputate volutpat, eros pede
                 semper est, vitae luctus metus liber
@@ -200,7 +206,7 @@
                 <input class="question_query" type="text" value="your query ...">
             </label>
             <div>
-                <button class="send"></button>
+                <button class="send"></button> <!-- naming https://ru.bem.info/methodology/quick-start/#%D0%B1%D0%BB%D0%BE%D0%BA, it shouldn`t change surroundings as it just a block -->
             </div>
         </form>
     </div>
@@ -208,7 +214,7 @@
         <div class="contact__header">
             Aliquam tincidunt
         </div>
-        <div class="table">
+        <div class="table"> <!-- naming -->
             <div class="contact__credentials_icon">
                 <img src="assets/home.png" alt="home"/>
             </div>
@@ -246,7 +252,7 @@
         <div class="footer__text">
             <div class="menu">
                 <a class="menu_link">Home</a>
-                <div class="slash">/</div>
+                <div class="slash">/</div> <!-- why it changes surroundings? -->
                 <a class="menu_link">About</a>
                 <div class="slash">/</div>
                 <a class="menu_link">Services</a>
@@ -256,12 +262,12 @@
                 <a class="menu_link">Contact</a>
             </div>
             <div class="designer">
-                <a class="designer_text  red">Designed by: www.alltemplateneeds.com /</a>
-                <a class="designer_text  white">Images from: www.wallpaperswide.com/Copyriight(c) website name.</a>
+                <a class="designer_text  red">Designed by: www.alltemplateneeds.com /</a> <!-- naming... -->
+                <a class="designer_text  white">Images from: www.wallpaperswide.com/Copyriight(c) website name.</a> <!-- it`s not even white -->
             </div>
         </div>
         <div class="pages">
-            <img class="pages_icon" src="assets/facebook.png" height="43" width="43" alt="facebook"/>
+            <img class="pages_icon" src="assets/facebook.png" height="43" width="43" alt="facebook"/> <!-- unnecessary margin-left for first element -->
             <img class="pages_icon" src="assets/twitter.png" height="43" width="43" alt="twitter"/>
             <img class="pages_icon" src="assets/inst.png" height="43" width="43" alt="inst"/>
         </div>
