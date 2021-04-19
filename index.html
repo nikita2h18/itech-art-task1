@@ -10,7 +10,7 @@
 <header class="header">
     <div class="header__items container">
         <div class="site-name">SITE NAME</div>
-        <nav class="menu justify-content_flex-end">
+        <nav class="menu _flex-end">
             <ul class="menu__item">
                 <a class="menu__link" href="#">HOME</a>
             </ul>
@@ -34,22 +34,21 @@
     <div class="hero__items container">
         <img class="hero__icon" src="assets/cir.png" alt="icon"/>
         <div class="hero__info">
-            <div>
+            <p>
                 Clivuam Tinc<br>
                 Nunc Difnissim Risus id Metus
-            </div>
+            </p>
             <a class="hero__link" href="http://wallpaperswide.com/">http://wallpaperswide.com/</a>
         </div>
     </div>
 </div>
 
-<!-- naming... -->
 <div class="features">
     <div class="features__list container">
-        <div class="card-item col"> <!-- why it is not a separate block? -->
+        <div class="card-item col">
             <img class="card__image" src="assets/rocket.png" height="70" width="70" alt="rocket"/>
             <div class="card__text">
-                <p class="card_header">Aliquam tincidunt</p>
+                <p class="text-header text-header_second-focus">Aliquam tincidunt</p>
                 <div>
                     <p>Donec nec justo eget felis facilisis fermentum.
                         Aliqua porttitor mauris sit amet orci. Aenean dignissim pallentesq
@@ -61,7 +60,7 @@
         <div class="card-item col">
             <img class="card__image" src="assets/shield.png" height="70" width="70" alt="shield"/>
             <div class="card__text">
-                <p class="card_header">Cras ornare tristuqu</p>
+                <p class="text-header text-header_second-focus">Cras ornare tristuqu</p>
                 <div>
                     <p>Jonec nec justo eget felis facilisis fermentum.
                         Aliqua porttitor mauris sit amet orci. Aenean dignissim pallentesq
@@ -73,7 +72,7 @@
         <div class="card-item col">
             <img class="card__image" src="assets/extinguisher.png" height="70" width="70" alt="extinguisher"/>
             <div class="card__text">
-                <p class="card_header">Vivamus vestibulum</p>
+                <p class="text-header text-header_second-focus">Vivamus vestibulum</p>
                 <div>
                     <p>Conec nec justo eget felis facilisis fermentum.
                         Aliqua porttitor mauris sit amet orci. Aenean dignissim pallentesq
@@ -85,213 +84,222 @@
     </div>
 </div>
 
-<div class="news">
-    <div class="news__items container">
-        <div class="news__items_text">
-            <div class="card_header">
-                Donec nec justo eget felis facilisis fermentum. Aliquam porttitor<br>
-                sit amet orci. Aenean dignissism pellentesque felis
-            </div>
-            <div class="title border">
-                Civamus vestibulum nulla nec ante
-            </div>
-            <div class="list"> <!-- create separate block for such styles -->
-                <div class="info">
-                    <div>
-                        <div class="info__text fat">
-                            Sed egestas anteet
-                        </div>
-                        <div class="info__text">
-                            Eros pede semper est, vitae luctus metus libero eu augue.
-                            Morbi purus libero, faucibus adipiscing commodo quis,
-                            gravida id, est. Sed lectus. Praesent elementum hendrerit
-                            tortor. Ultrices sagittis, mi neque euismod dui, eu pulvinar
-                            nunc sapiern ornare nisl.
-                        </div>
-                    </div>
+<div class="news container">
+    <div class="news__text-part">
+        <div class="text-header text-header_second-focus">
+            Donec nec justo eget felis facilisis fermentum. Aliquam porttitor<br>
+            sit amet orci. Aenean dignissism pellentesque felis
+        </div>
+        <div class="news__title">
+            Civamus vestibulum nulla nec ante
+        </div>
+        <div class="news__list">
+            <div class="news__article">
+                <p class="article__text text_fat">
+                    Sed egestas anteet
+                </p>
+                <p class="article__text">
+                    Eros pede semper est, vitae luctus metus libero eu augue.
+                    Morbi purus libero, faucibus adipiscing commodo quis,
+                    gravida id, est. Sed lectus. Praesent elementum hendrerit
+                    tortor. Ultrices sagittis, mi neque euismod dui, eu pulvinar
+                    nunc sapiern ornare nisl.
+                </p>
 
-                    <button class="button">MORE</button>
-                </div>
-                <div class="info">
-                    <div>
-                        <div class="info__text fat">
-                            Aenean egestas anteet
-                        </div>
-                        <div class="info__text">
-                            Lorem pede semper est, vitae luctus metus libero eu augue.
-                            Morbi purus libero, faucibus adipiscing commodo quis,
-                            gravida id, est. Sed lectus. Praesent elementum hendrerit
-                            tortor. Ultrices sagittis, mi neque euismod dui, eu pulvinar
-                            nunc sapiern ornare nisl.
-                        </div>
-                    </div>
-
-                    <button class="button">MORE</button>
-                </div>
+                <button class="button button_first-focus">
+                    <p class="button__text">MORE</p>
+                </button>
             </div>
-        </div> <!-- news__items modifier cannot be applied outside of news__items element -->
-        <div class="news__items_image">
-            <img src="assets/circle.png" alt="circle"/>
+            <div class="news__article">
+                <p class="article__text text_fat">
+                    Aenean egestas anteet
+                </p>
+                <p class="article__text">
+                    Lorem pede semper est, vitae luctus metus libero eu augue.
+                    Morbi purus libero, faucibus adipiscing commodo quis,
+                    gravida id, est. Sed lectus. Praesent elementum hendrerit
+                    tortor. Ultrices sagittis, mi neque euismod dui, eu pulvinar
+                    nunc sapiern ornare nisl.
+                </p>
+
+                <button class="button button_first-focus">
+                    <p class="button__text">MORE</p>
+                </button>
+            </div>
         </div>
     </div>
+    <div class="news__image-part">
+        <img src="assets/circle.png" width="355" height="355" alt="circle"/>
+    </div>
 </div>
-<!-- why "block" uses margin property? it is not its responsibility to change surrounding -->
-<div class="subscription">
-    <div class="label container">
-        <!-- move color to variable, create separate block for such case (image on the left, content on the right) -->
-        <div class="label__example">
-            <img class="label__example_img" src="assets/people.png" alt="people"/>
+<div class="subscription container">
+    <div class="label background_first-focus">
+        <div class="card-item col">
+            <img class="card__image" src="assets/people.png" height="70" width="70" alt="people"/>
             <div class="label__example_content">
-                <!-- why not just margin-bottom? (why flex-column justify-content-between?) -->
-                <div class="content_head">
+                <div class="text-header text-header_white">
                     Donec nec justo eget
                 </div>
                 <div class="content_text">
-                    “Ede semper est, vitae luctus metus libero eu augue. Morb sipo
+                    “Ede semper est, vitae luctus metus libero eu augue. Morb sipo<br>
                     ipiscing, commodo quis, gravida ..." -
                     <a class="cursive">Kohn Doe/company name</a>
                 </div>
             </div>
         </div>
-        <div class="label__subscribe">
-            <div class="content_head">
+        <div class="subscribe-form col">
+            <div class="text-header text-header_white">
                 Morbi vitae luctus
             </div>
-            <div class="label__subscribe_input">
+            <div class="subscribe-form__input">
                 <input class="input" type="text" value="enter your email id here ...">
-                <button class="subscribe_button"></button>
+                <div class="subscribe-form__button">
+                    <button class="button button_second-focus">
+                        <p class="button__text">SUBSCRIBE</p>
+                        <img src="assets/arrow.png" alt="arrow"/>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <div class="contact container">
-    <div class="contact__people"> <!-- move to separate block with 1 rule set -->
-        <div class="contact__header">
+    <div class="table col">
+        <div class="text-header">
             Aliquam tincidunt
         </div>
-        <div class="table">
+        <div class="table-element">
             <div class="card__image">
                 <img src="assets/people1.png" alt="people1"/>
             </div>
             <div class="card__text">
                 <p>
                     Donec nec justo eget felis facilisis fermentum. Aliquam porttitor
-                    <a class="link" href=""> => more </a>
                 </p>
+                <a class="link" href=""> => more </a>
             </div>
         </div>
-        <div class="table">
+        <div class="table-element">
             <div class="card__image">
                 <img src="assets/people2.png" alt="people2"/>
             </div>
             <div class="card__text">
                 <p>
                     Donec nec justo eget felis facilisis fermentum. Aliquam porttitor
-                    <a class="link" href=""> => more </a>
                 </p>
+                <a class="link" href=""> => more </a>
             </div>
         </div>
-        <div class="table">
+        <div class="table-element">
             <div class="card__image">
                 <img src="assets/people3.png" alt="people3"/>
             </div>
             <div class="card__text">
                 <p>
                     Donec nec justo eget felis facilisis fermentum. Aliquam porttitor
-                    <a class="link" href=""> => more </a>
                 </p>
+                <a class="link" href=""> => more </a>
             </div>
         </div>
     </div>
-    <div class="question">
-        <div class="question__header">
+    <div class="table col">
+        <div class="text-header">
             Nunc dignissim risu
         </div>
 
-        <form class="question__form"> <!-- why flex-column? -->
-            <div class="question__form_description">
+        <form class="form">
+            <div class="card__text">
                 Sed egestas, ante et vulputate volutpat, eros pede
                 semper est, vitae luctus metus liber
             </div>
-            <label>
-                <input class="question_input" type="text" value="name ...">
-            </label>
-            <label>
-                <input class="question_input" type="text" value="email ...">
-            </label>
-            <label>
+            <div class="form__item">
+                <input class="input" type="text" value="name ...">
+            </div>
+            <div class="form__item">
+                <input class="input" type="text" value="email ...">
+            </div>
+            <div class="form__item">
                 <input class="question_query" type="text" value="your query ...">
-            </label>
-            <div>
-                <button class="send"></button>
-                <!-- naming https://ru.bem.info/methodology/quick-start/#%D0%B1%D0%BB%D0%BE%D0%BA, it shouldn`t change surroundings as it just a block -->
+            </div>
+            <div class="form__item">
+                <button class="button button_first-focus">
+                    <p class="button__text">SEND</p>
+                    <img src="assets/arrow.png" alt="arrow"/>
+                </button>
             </div>
         </form>
     </div>
-    <div class="contact__credentials">
-        <div class="contact__header">
+    <div class="col">
+        <div class="text-header">
             Aliquam tincidunt
         </div>
-        <div class="table"> <!-- naming -->
+        <div class="table-element">
             <div class="card__image">
                 <img src="assets/home.png" alt="home"/>
             </div>
             <div class="card__text">
                 <p class="credentials_title">Address</p>
-                <p>some block, steet number, city name,<br>
-                    country</p>
+                <a class="contact-link" href="https://goo.gl/maps/5r9cUH65M9R7st9B7">
+                    some block, steet number, city name,<br>
+                    country</a>
             </div>
         </div>
-        <div class="table">
+        <div class="table-element">
             <div class="card__image">
                 <img src="assets/phone.png" alt="phone"/>
             </div>
             <div class="card__text">
                 <p class="credentials_title">Phone</p>
-                <p> (000) 777 777 7777<br>
-                    (000) 888 888 8888</p>
+                <a class="contact-link" href="tel:+1234567890">
+                    (000) 777 777 7777<br>
+                </a>
+                <a class="contact-link" href="tel:+1234567890">
+                    (000) 888 888 8888
+                </a>
             </div>
         </div>
-        <div class="table">
+        <div class="table-element">
             <div class="card__image">
                 <img src="assets/mail.png" alt="mail"/>
             </div>
             <div class="card__text">
                 <p class="credentials_title">Email us</p>
-                <p> info@siteneme.com<br>
-                    sales@sitename.com<br>
-                    company@sitename.</p>
+                <a class="contact-link" href="mailto:some@example.com">info@siteneme.com<br></a>
+                <a class="contact-link" href="mailto:some@example.com">sales@sitename.com<br></a>
+                <a class="contact-link" href="mailto:some@example.com">company@sitename.</a>
             </div>
         </div>
     </div>
 </div>
-<div class="footer">
-    <footer class="information container">
-        <div class="footer__text">
-            <div class="header__items">
-                <a class="menu_link">Home</a>
-                <div class="slash">/</div> <!-- why it changes surroundings? -->
-                <a class="menu_link">About</a>
-                <div class="slash">/</div>
-                <a class="menu_link">Services</a>
-                <div class="slash">/</div>
-                <a class="menu_link">Portfolio</a>
-                <div class="slash">/</div>
-                <a class="menu_link">Contact</a>
+<footer class="footer">
+    <div class="information container">
+        <div class="navigation">
+            <div class="navigation__pages">
+                <a class="menu__link" href="#">Home</a>
+                /
+                <a class="menu__link" href="#">About</a>
+                /
+                <a class="menu__link" href="#">Services</a>
+                /
+                <a class="menu__link" href="#">Portfolio</a>
+                /
+                <a class="menu__link" href="#">Contact</a>
             </div>
             <div class="designer">
-                <a class="designer_text  red">Designed by: www.alltemplateneeds.com /</a> <!-- naming... -->
-                <a class="designer_text  white">Images from: www.wallpaperswide.com/Copyriight(c) website name.</a>
-                <!-- it`s not even white -->
+                <a class="designer__text  designer__text_special" href="#">
+                    Designed by: www.alltemplateneeds.com /
+                </a>
+                <a class="designer__text  designer__text_default" href="#">
+                    Images from: www.wallpaperswide.com/Copyriight(c) website name.
+                </a>
             </div>
         </div>
-        <div class="pages">
-            <img class="pages_icon" src="assets/facebook.png" height="43" width="43" alt="facebook"/>
-            <!-- unnecessary margin-left for first element -->
-            <img class="pages_icon" src="assets/twitter.png" height="43" width="43" alt="twitter"/>
-            <img class="pages_icon" src="assets/inst.png" height="43" width="43" alt="inst"/>
+        <div class="social">
+            <img class="social_icon" src="assets/facebook.png" height="43" width="43" alt="facebook"/>
+            <img class="social_icon" src="assets/twitter.png" height="43" width="43" alt="twitter"/>
+            <img class="social_icon" src="assets/inst.png" height="43" width="43" alt="inst"/>
         </div>
-    </footer>
-</div>
+    </div>
+</footer>
 </body>
 </html>
