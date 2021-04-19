@@ -12,6 +12,9 @@
     font-weight: normal;
 }
 
+/* missing box-sizing setting */
+
+/* It would be better and simpler just list hex values here, e.x. #c3c3c3 */
 :root {
     --gray: 39, 43, 44;
     --light-gray: 230, 230, 230;
@@ -85,7 +88,7 @@ body {
 }
 
 .menu_item:hover {
-    background-color: rgb(var(--red));
+    background-color: var(--red);
     cursor: pointer;
 }
 
@@ -123,7 +126,7 @@ body {
     text-align: left;
 }
 
-.banner__info__link {
+.banner__info__link { /* no :visited selector */
     font-size: 15px;
     font-family: FjallaOne, sans-serif;
     color: rgb(var(--red));
@@ -342,15 +345,15 @@ body {
     color: rgb(159, 170, 173);
     font-style: italic;
     line-height: 1.714;
-    flex-grow: 4;
+    flex-grow: 4; /* why? */
     margin-right: 10px;
 }
 
 .subscribe_button {
-    background-image: url("assets/subcribe.png");
+    background-image: url("assets/subcribe.png"); /* why image? */
     width: 120px;
     height: 41px;
-    font-size: 15px;
+    font-size: 15px; /* it wont affect image */
     font-family: FjallaOne, sans-serif;
     color: rgb(255, 255, 255);
     text-transform: uppercase;
