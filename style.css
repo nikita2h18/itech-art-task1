@@ -58,10 +58,9 @@ body {
 
 .header__items {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     background-color: var(--gray);
-    height: 80px;
+    min-height: 80px;
     width: auto;
 }
 
@@ -103,7 +102,7 @@ body {
 
 .hero {
     display: flex;
-    height: 496px;
+    max-height: 496px;
     background-image: url("assets/layer.png");
     background-position: center center;
     background-size: cover;
@@ -115,8 +114,6 @@ body {
 }
 
 .hero__icon {
-    width: 70px;
-    height: 70px;
     margin-bottom: 20px;
 }
 
@@ -150,10 +147,8 @@ body {
 
 .features__list {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-
     min-height: 277px;
 }
 
@@ -349,14 +344,8 @@ body {
     cursor: pointer;
 }
 
-.headers {
-    display: flex;
-    justify-content: space-between;
-}
-
 .contact {
     display: flex;
-    flex-wrap: wrap;
     background: white;
     justify-content: space-between;
     padding-bottom: 60px;
@@ -364,6 +353,10 @@ body {
 
 .table {
     padding-right: 30px;
+}
+
+.table:last-child {
+    padding-right: 0;
 }
 
 .table-element {
@@ -486,4 +479,57 @@ body {
 
 .social_icon:first-child {
     margin-left: 0;
+}
+
+@media (max-width: 800px) {
+    .header__items {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu {
+        flex: 1;
+    }
+
+    .features__list {
+        flex-direction: column;
+    }
+
+    .card-item {
+        padding: 30px 0;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .news, .news__list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card__image {
+        margin-bottom: 20px;
+    }
+
+    .card__text, .text-header, .news__title {
+        text-align: center;
+        padding-bottom: 0;
+    }
+
+    .label {
+        flex-direction: column;
+        padding-bottom: 30px;
+    }
+
+    .subscribe-form {
+        width: 100%;
+    }
+
+    .contact {
+        flex-direction: column;
+    }
+
+    .table {
+        padding-right: 0;
+        padding-bottom: 30px;
+    }
 }
