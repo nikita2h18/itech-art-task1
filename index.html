@@ -43,50 +43,45 @@
         </div>
     </div>
 </div>
+
 <div class="features">
-    <div class="features__list container">
-        <div class="card-item col">
+    <ul class="features__list container">
+        <li class="card col">
             <img class="card__image" src="assets/rocket.png" height="70" width="70" alt="rocket"/>
             <div class="card__text">
-                <p class="text-header text-header_second-focus">Aliquam tincidunt</p>
-                <div>
-                    <p>Donec nec justo eget felis facilisis fermentum.
-                        Aliqua porttitor mauris sit amet orci. Aenean dignissim pallentesq
-                        <a class="link" href=""> => more </a>
-                    </p>
-                </div>
+                <p class="text-header card__header text-header_second-focus">Aliquam tincidunt</p>
+                <p>Donec nec justo eget felis facilisis fermentum.
+                    Aliqua porttitor mauris sit amet orci. Aenean dignissim pallentesq
+                    <a class="link" href=""> => more </a>
+                </p>
             </div>
-        </div>
-        <div class="card-item col">
+        </li>
+        <li class="card col">
             <img class="card__image" src="assets/shield.png" height="70" width="70" alt="shield"/>
             <div class="card__text">
-                <p class="text-header text-header_second-focus">Cras ornare tristuqu</p>
-                <div>
-                    <p>Jonec nec justo eget felis facilisis fermentum.
-                        Aliqua porttitor mauris sit amet orci. Aenean dignissim pallentesq
-                        <a class="link" href=""> => more </a>
-                    </p>
-                </div>
+                <p class="text-header card__header text-header_second-focus">Cras ornare tristuqu</p>
+                <p>Jonec nec justo eget felis facilisis fermentum.
+                    Aliqua porttitor mauris sit amet orci. Aenean dignissim pallentesq
+                    <a class="link" href=""> => more </a>
+                </p>
             </div>
-        </div>
-        <div class="card-item col">
+        </li>
+        <li class="card col">
             <img class="card__image" src="assets/extinguisher.png" height="70" width="70" alt="extinguisher"/>
             <div class="card__text">
-                <p class="text-header text-header_second-focus">Vivamus vestibulum</p>
-                <div>
-                    <p>Conec nec justo eget felis facilisis fermentum.
-                        Aliqua porttitor mauris sit amet orci. Aenean dignissim pallentesq
-                        <a class="link" href=""> => more </a>
-                    </p>
-                </div>
+                <p class="text-header card__header text-header_second-focus">Vivamus vestibulum</p>
+                <p>Conec nec justo eget felis facilisis fermentum.
+                    Aliqua porttitor mauris sit amet orci. Aenean dignissim pallentesq
+                    <a class="link" href=""> => more </a>
+                </p>
             </div>
-        </div>
-    </div>
+        </li>
+    </ul>
 </div>
 
 <div class="news container">
-    <div class="news__text-part">
-        <div class="text-header text-header_second-focus">
+    <div class="news__content">
+        <div class="text-header news__header text-header_second-focus">
             Donec nec justo eget felis facilisis fermentum. Aliquam porttitor<br>
             sit amet orci. Aenean dignissism pellentesque felis
         </div>
@@ -94,8 +89,8 @@
             Civamus vestibulum nulla nec ante
         </div>
         <div class="news__list">
-            <div class="news__article">
-                <p class="article__text text_fat">
+            <article class="article">
+                <p class="article__text article__header">
                     Sed egestas anteet
                 </p>
                 <p class="article__text">
@@ -106,12 +101,12 @@
                     nunc sapiern ornare nisl.
                 </p>
 
-                <button class="button button_first-focus">
+                <button class="button article__button button_first-focus">
                     <p class="button__text">MORE</p>
                 </button>
-            </div>
-            <div class="news__article">
-                <p class="article__text text_fat">
+            </article>
+            <article class="article">
+                <p class="article__text article__header">
                     Aenean egestas anteet
                 </p>
                 <p class="article__text">
@@ -122,33 +117,33 @@
                     nunc sapiern ornare nisl.
                 </p>
 
-                <button class="button button_first-focus">
+                <button class="button article__button button_first-focus">
                     <p class="button__text">MORE</p>
                 </button>
-            </div>
+            </article>
         </div>
     </div>
-    <div class="news__image-part">
-        <img src="assets/circle.png" width="355" height="355" alt="circle"/>
+    <div class="news__image-container">
+        <img class="news__image" src="assets/circle.png" alt="circle"/>
     </div>
 </div>
 <div class="subscription container">
     <div class="label background_first-focus">
-        <div class="card-item col">
+        <div class="card col">
             <img class="card__image" src="assets/people.png" height="70" width="70" alt="people"/>
-            <div class="label__example_content">
-                <div class="text-header text-header_white">
+            <div class="label__content">
+                <div class="text-header label__header text-header_white">
                     Donec nec justo eget
                 </div>
-                <div class="content_text">
+                <div class="label__text card__text">
                     “Ede semper est, vitae luctus metus libero eu augue. Morb sipo<br>
                     ipiscing, commodo quis, gravida ..." -
-                    <a class="cursive">Kohn Doe/company name</a>
+                    <a class="label__text label__text_cursive">Kohn Doe/company name</a>
                 </div>
             </div>
         </div>
         <div class="subscribe-form col">
-            <div class="text-header text-header_white">
+            <div class="text-header label__header text-header_white">
                 Morbi vitae luctus
             </div>
             <div class="subscribe-form__input">
@@ -164,11 +159,11 @@
     </div>
 </div>
 <div class="contact container">
-    <div class="table col">
-        <div class="text-header">
+    <div class="contact__list col">
+        <div class="text-header contact_header">
             Aliquam tincidunt
         </div>
-        <div class="table-element">
+        <div class="contact__info card">
             <div class="card__image">
                 <img src="assets/people1.png" alt="people1"/>
             </div>
@@ -179,7 +174,7 @@
                 <a class="link" href=""> => more </a>
             </div>
         </div>
-        <div class="table-element">
+        <div class="contact__info card">
             <div class="card__image">
                 <img src="assets/people2.png" alt="people2"/>
             </div>
@@ -190,7 +185,7 @@
                 <a class="link" href=""> => more </a>
             </div>
         </div>
-        <div class="table-element">
+        <div class="contact__info card">
             <div class="card__image">
                 <img src="assets/people3.png" alt="people3"/>
             </div>
@@ -202,13 +197,13 @@
             </div>
         </div>
     </div>
-    <div class="table col">
-        <div class="text-header">
+    <div class="contact__list col">
+        <div class="text-header contact_header">
             Nunc dignissim risu
         </div>
 
         <form class="form">
-            <div class="card__text">
+            <div class="form__text">
                 Sed egestas, ante et vulputate volutpat, eros pede
                 semper est, vitae luctus metus liber
             </div>
@@ -229,41 +224,41 @@
             </div>
         </form>
     </div>
-    <div class="table col">
-        <div class="text-header">
+    <div class="contact__list credentials col">
+        <div class="text-header contact_header">
             Aliquam tincidunt
         </div>
-        <div class="table-element">
+        <div class="contact__info card">
             <div class="card__image">
                 <img src="assets/home.png" alt="home"/>
             </div>
             <div class="card__text">
-                <p class="credentials_title">Address</p>
+                <p class="credentials__title">Address</p>
                 <a class="contact-link" href="https://goo.gl/maps/5r9cUH65M9R7st9B7">
                     some block, steet number, city name,<br>
                     country</a>
             </div>
         </div>
-        <div class="table-element">
+        <div class="contact__info card">
             <div class="card__image">
                 <img src="assets/phone.png" alt="phone"/>
             </div>
             <div class="card__text">
-                <p class="credentials_title">Phone</p>
+                <p class="credentials__title">Phone</p>
                 <a class="contact-link" href="tel:+1234567890">
                     (000) 777 777 7777<br>
                 </a>
-                <a class="contact-link" href="tel:+1234567890">
+                <a class="contact-link card" href="tel:+1234567890">
                     (000) 888 888 8888
                 </a>
             </div>
         </div>
-        <div class="table-element">
+        <div class="contact__info card">
             <div class="card__image">
                 <img src="assets/mail.png" alt="mail"/>
             </div>
             <div class="card__text">
-                <p class="credentials_title">Email us</p>
+                <p class="credentials__title">Email us</p>
                 <a class="contact-link" href="mailto:some@example.com">info@siteneme.com<br></a>
                 <a class="contact-link" href="mailto:some@example.com">sales@sitename.com<br></a>
                 <a class="contact-link" href="mailto:some@example.com">company@sitename.</a>
@@ -273,17 +268,17 @@
 </div>
 <footer class="footer">
     <div class="information container">
-        <div class="navigation">
-            <div class="navigation__pages">
-                <a class="menu__link" href="#">Home</a>
+        <div>
+            <div class="navigation">
+                <a class="navigation__link" href="#">Home</a>
                 /
-                <a class="menu__link" href="#">About</a>
+                <a class="navigation__link" href="#">About</a>
                 /
-                <a class="menu__link" href="#">Services</a>
+                <a class="navigation__link" href="#">Services</a>
                 /
-                <a class="menu__link" href="#">Portfolio</a>
+                <a class="navigation__link" href="#">Portfolio</a>
                 /
-                <a class="menu__link" href="#">Contact</a>
+                <a class="navigation__link" href="#">Contact</a>
             </div>
             <div class="designer">
                 <a class="designer__text  designer__text_special" href="#">
@@ -295,9 +290,9 @@
             </div>
         </div>
         <div class="social">
-            <img class="social_icon" src="assets/facebook.png" height="43" width="43" alt="facebook"/>
-            <img class="social_icon" src="assets/twitter.png" height="43" width="43" alt="twitter"/>
-            <img class="social_icon" src="assets/inst.png" height="43" width="43" alt="inst"/>
+            <img class="social__icon" src="assets/facebook.png" height="43" width="43" alt="facebook"/>
+            <img class="social__icon" src="assets/twitter.png" height="43" width="43" alt="twitter"/>
+            <img class="social__icon" src="assets/inst.png" height="43" width="43" alt="inst"/>
         </div>
     </div>
 </footer>
