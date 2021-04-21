@@ -1,12 +1,12 @@
-function task1() {
-    const arraysContainer = [
+const task1 = {
+    arraysContainer: [
         {v: [-1, 2, 5, 0, 3, -1, 4], expectedResult: 10},
         {v: [1, -2, 3, 1, -9, 6], expectedResult: 6},
         {v: [5, 11, -9, 20, 13], expectedResult: 33},
-    ];
+    ],
 
-    function findBiggestSubSum() {
-        arraysContainer.forEach(
+    findBiggestSubSum() {
+        this.arraysContainer.forEach(
             element => {
                 let biggestSum = 0;
                 let result = 0;
@@ -31,6 +31,4 @@ function task1() {
             }
         )
     }
-
-    return findBiggestSubSum();
 }
