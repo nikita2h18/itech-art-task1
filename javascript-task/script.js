@@ -26,24 +26,24 @@ const task1 = {
             }
         )
     },
-}
 
+    getMaxSubSum() {
+        this.arraysContainer.forEach(
+            element => {
+                let biggestSum = 0;
+                for (let i = 0; i < element.v.length; i++) {
+                    let sum = 0;
+                    for (let j = i; j < element.v.length; j++) {
+                        sum += element.v[j];
 
-function getMaxSubSum(arr) {
-    let sum = 0;
-    let biggestSum = 0;
-    for (let i = 0; i < arr.length; i++) {
-        for (let p = i; p < arr.length; p++) {
-            sum += arr[p];
-            if (sum > biggestSum) {
-                biggestSum = sum;
+                        if (sum > biggestSum) {
+                            biggestSum = sum;
+                        }
+                    }
+                }
+
+                console.log(biggestSum);
             }
-        }
-        sum = 0;
-    }
-    return (biggestSum > 0) ? biggestSum : -1;
+        )
+    },
 }
-
-task1.arraysContainer.forEach(
-    element => console.log(getMaxSubSum(element.v))
-)
