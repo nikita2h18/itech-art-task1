@@ -19,7 +19,9 @@ const arraysProcessing = {
                             biggestSum = partialSum;
                         }
 
-                        if (partialSum < 0) partialSum = 0;
+                        if (partialSum < 0) {
+                            partialSum = 0;
+                        }
                     }
                 );
 
@@ -157,6 +159,36 @@ let stringToDateFormatter = {
     },
 }
 
+function textConverter(string, maxLength, formatType) {
+    if (string.length > maxLength) {
+        console.log("Error! Your string is to long");
+        return 0;
+    }
+
+    switch (formatType) {
+        case 'word': {
+            strFormat(string, ' ');
+            break;
+        }
+        case 'symbol': {
+            strFormat(string, "");
+            break;
+        }
+        case 'sentence': {
+            strFormat(string, '.');
+            break;
+        }
+        default: {
+            console.log(string);
+            break;
+        }
+    }
+}
+
+function strFormat(string, splitSymbol) {
+    string.split(splitSymbol).forEach(val => console.log(val));
+}
+
 let stringCalculator = {
     result: 0,
 
@@ -184,7 +216,7 @@ let stringCalculator = {
         console.log(this.result)
         this.multiply('2');
         console.log(this.result)
-        this.division('13');
+        this.division('1.8');
         console.log(this.result)
     }
 }
@@ -272,14 +304,14 @@ let arraySorter = {
     }
 }
 
-binaryConverter = {
-    binaryNumber: '10011100',
-    numb: 289,
+let binaryConverter = {
+    binary: '10011100',
+    decimal: 289,
 
     binToDec() {
         let dec = 0;
-        for (let i = 0; i < this.binaryNumber.length; i++) {
-            if (this.binaryNumber[this.binaryNumber.length - (i + 1)] === '1') {
+        for (let i = 0; i < this.binary.length; i++) {
+            if (this.binary[this.binary.length - (i + 1)] === '1') {
                 dec += 2 ** i;
             }
         }
@@ -295,14 +327,14 @@ binaryConverter = {
     decToBin() {
         let binary = '';
 
-        while (this.numb > 0) {
-            if (this.numb % 2 === 0) {
+        while (this.decimal > 0) {
+            if (this.decimal % 2 === 0) {
                 binary = "0" + binary;
             } else {
                 binary = "1" + binary;
             }
 
-            this.numb = Math.floor(this.numb / 2);
+            this.decimal = Math.floor(this.decimal / 2);
         }
 
         console.log(binary);
