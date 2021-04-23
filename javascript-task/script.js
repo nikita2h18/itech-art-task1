@@ -126,7 +126,7 @@ const arraysProcessing = {
 }
 
 let stringToDateFormatter = {
-    str: '31102012',
+    date: [],
     month: [
         'January',
         'February',
@@ -142,21 +142,52 @@ let stringToDateFormatter = {
         'December',
     ],
 
-    strToDate() {
-        let day = this.str.slice(0, 2);
-        let month = this.str.slice(2, 4);
-        let year = this.str.slice(4, 8);
+    strToDate(date) {
+        let day = date.slice(0, 2);
+        let month = date.slice(2, 4);
+        let year = date.slice(4, 8);
 
-        return [day, month, year];
+        this.date = [day, month, year];
     },
 
-    showSimpleDate(date) {
-        console.log(date[0] + "-" + date[1] + "-" + date[2]);
+    showSimpleDate() {
+        console.log(this.date[0] + "-" + this.date[1] + "-" + this.date[2]);
     },
 
-    showDate(date) {
-        console.log(date[0] + " " + this.month[date[1] - 1] + " " + date[2]);
+    showDate() {
+        console.log(this.date[0] + " " + this.month[this.date[1] - 1] + " " + this.date[2]);
     },
+
+    showDateByFormat(format) {
+        switch (format) {
+            case 'YYYYMMDD': {
+                console.log(this.date[0] + " " + this.month[this.date[1] - 1] + " " + this.date[2]);
+                break;
+            }
+            case "MM-DD-YYYY": {
+                console.log(this.date[0] + "-" + this.date[1] + "-" + this.date[2]);
+                break;
+            }
+            case "MM/DD/YYYY": {
+                console.log(this.date[0] + "/" + this.date[1] + "/" + this.date[2]);
+                break;
+            }
+            case 'Month D, Yr': {
+                console.log(this.month[this.date[1] - 1] + " " + this.date[0] + ", " + this.date[2]);
+                break;
+            }
+        }
+    },
+
+    showResult(date) {
+        this.strToDate(date);
+        this.showSimpleDate();
+        this.showDate();
+        this.showDateByFormat('YYYYMMDD');
+        this.showDateByFormat('MM-DD-YYYY');
+        this.showDateByFormat('MM/DD/YYYY');
+        this.showDateByFormat('Month D, Yr');
+    }
 }
 
 function textConverter(string, maxLength, formatType) {
