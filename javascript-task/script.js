@@ -1,17 +1,17 @@
 const arraysProcessing = {
     arraysContainer: [
-        {v: [-1, 2, 5, 0, 3, -1, 4], expectedResult: 13},
-        {v: [1, -2, 3, 1, -9, 6], expectedResult: 6},
-        {v: [5, 11, -9, 20, 13], expectedResult: 40},
+        [-1, 2, 5, 0, 3, -1, 4],
+        [1, -2, 3, 1, -9, 6],
+        [5, 11, -9, 20, 13],
     ],
 
     findBiggestSubSum(container) {
+        let sumContainer = [];
         container.forEach(
-            element => {
-                let copy = element.v;
+            arr => {
                 let biggestSum = 0;
                 let partialSum = 0;
-                copy.forEach(
+                arr.forEach(
                     res => {
                         partialSum += res;
 
@@ -24,21 +24,21 @@ const arraysProcessing = {
                         }
                     }
                 );
-
-                biggestSum === element.expectedResult ? console.log(biggestSum) : console.log("My algorithm wrong:(");
+                sumContainer.push(biggestSum);
             }
         )
+        return sumContainer;
     },
 
     getMaxSubSum(container) {
+        let sumContainer = [];
         container.forEach(
-            element => {
-                let copy = element.v;
+            arr => {
                 let biggestSum = 0;
-                for (let i = 0; i < copy.length; i++) {
+                for (let i = 0; i < arr.length; i++) {
                     let sum = 0;
-                    for (let j = i; j < copy.length; j++) {
-                        sum += copy[j];
+                    for (let j = i; j < arr.length; j++) {
+                        sum += arr[j];
 
                         if (sum > biggestSum) {
                             biggestSum = sum;
@@ -46,19 +46,21 @@ const arraysProcessing = {
                     }
                 }
 
-                console.log(biggestSum);
+                sumContainer.push(biggestSum);
             }
         )
+        return sumContainer;
     },
 
     search(container) {
+        let values = []
         container.forEach(
-            element => {
-                let copy = Object.assign([], element.v);
+            arr => {
+                const temp = arr.slice();
                 let max = 0;
-                let min = copy[0];
+                let min = temp[0];
 
-                copy.forEach(
+                temp.forEach(
                     arrayElement => {
                         if (max < arrayElement) {
                             max = arrayElement
@@ -69,34 +71,37 @@ const arraysProcessing = {
                         }
                     }
                 )
-                console.log("max: " + max);
-                console.log("min: " + min);
+                values.push(min, max);
 
-                copy.sort(function (a, b) {
+                temp.sort(function (a, b) {
                     return a - b;
                 });
 
-                let median = Math.floor(copy.length / 2);
+                const median = Math.floor(temp.length / 2);
 
-                if (copy.length % 2) {
-                    console.log("median: " + copy[median]);
+                const isOdd = temp.length % 2;
+                if (isOdd) {
+                    values.push(temp[median]);
                 } else {
-                    console.log("median: " + (copy[median - 1] + copy[median]) / 2.0);
+                    values.push((temp[median - 1] + temp[median]) / 2);
                 }
             }
         )
+        return values;
     },
 
     selection(container) {
+        let selectionContainer = [];
+
         container.forEach(
-            element => {
+            arr => {
                 let selection = [];
                 let selectionResult = [];
-                for (let i = 0; i < element.v.length - 1; i++) {
-                    if (parseInt(element.v[i]) < parseInt(element.v[i + 1])) {
-                        selection.push(element.v[i]);
+                for (let i = 0; i < arr.length - 1; i++) {
+                    if (parseInt(arr[i]) < parseInt(arr[i + 1])) {
+                        selection.push(arr[i]);
                     } else {
-                        selection.push(element.v[i]);
+                        selection.push(arr[i]);
                         if (selectionResult.length < selection.length) {
                             selectionResult = selection;
                         }
@@ -108,39 +113,26 @@ const arraysProcessing = {
                     }
                 }
 
-                console.log(selectionResult);
+                selectionContainer.push(selectionResult);
             }
         )
+        return selectionContainer;
     },
 
     process() {
         console.log("Sub sum O(n)");
-        this.findBiggestSubSum(this.arraysContainer);
+        console.log(this.findBiggestSubSum(this.arraysContainer));
         console.log("Sub sum O(n^2)");
-        this.getMaxSubSum(this.arraysContainer);
+        console.log(this.getMaxSubSum(this.arraysContainer));
         console.log("Search");
-        this.search(this.arraysContainer);
+        console.log(this.search(this.arraysContainer));
         console.log("Selection");
-        this.selection(this.arraysContainer);
+        console.log(this.selection(this.arraysContainer));
     }
 }
 
 let stringToDateFormatter = {
     date: [],
-    month: [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'Jule',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December',
-    ],
 
     strToDate(date) {
         let day = date.slice(0, 2);
@@ -150,105 +142,102 @@ let stringToDateFormatter = {
         this.date = [day, month, year];
     },
 
-    showSimpleDate() {
-        console.log(this.date[0] + "-" + this.date[1] + "-" + this.date[2]);
-    },
-
-    showDate() {
-        console.log(this.date[0] + " " + this.month[this.date[1] - 1] + " " + this.date[2]);
+    searchToken(format, value) {
+        let token = '';
+        for (let i = 0; i < format.length; i++) {
+            if (format[i] === value) {
+                token += value;
+            }
+        }
+        return token;
     },
 
     showDateByFormat(format) {
-        switch (format) {
-            case 'YYYYMMDD': {
-                console.log(this.date[0] + " " + this.month[this.date[1] - 1] + " " + this.date[2]);
-                break;
-            }
-            case "MM-DD-YYYY": {
-                console.log(this.date[0] + "-" + this.date[1] + "-" + this.date[2]);
-                break;
-            }
-            case "MM/DD/YYYY": {
-                console.log(this.date[0] + "/" + this.date[1] + "/" + this.date[2]);
-                break;
-            }
-            case 'Month D, Yr': {
-                console.log(this.month[this.date[1] - 1] + " " + this.date[0] + ", " + this.date[2]);
-                break;
-            }
-        }
+        let date = format;
+        let yearToken = this.searchToken(format, 'Y');
+        let dayToken = this.searchToken(format, 'D');
+        let monthToken = this.searchToken(format, 'M');
+
+        date = date.replace(yearToken, this.date[2].slice(-yearToken.length));
+        date = date.replace(dayToken, this.date[0].slice(-dayToken.length));
+        date = date.replace(monthToken, this.date[1].slice(-monthToken.length));
+
+        return date;
     },
 
     showResult(date) {
         this.strToDate(date);
-        this.showSimpleDate();
-        this.showDate();
-        this.showDateByFormat('YYYYMMDD');
-        this.showDateByFormat('MM-DD-YYYY');
-        this.showDateByFormat('MM/DD/YYYY');
-        this.showDateByFormat('Month D, Yr');
+        console.log(this.showDateByFormat('MM/DD/YY'));
+        console.log(this.showDateByFormat('YYYY/MM/DD'));
     }
 }
 
-function textConverter(string, maxLength, formatType) {
-    if (string.length > maxLength) {
-        console.log("Error! Your string is to long");
-        return 0;
+function textConverter(text, maxLength, formatType) {
+    if (text.length > maxLength) {
+        return 'Your text is too long';
     }
 
     switch (formatType) {
         case 'word': {
-            strFormat(string, ' ');
-            break;
+            return textFormat(text, ' ');
         }
         case 'symbol': {
-            strFormat(string, "");
-            break;
+            return textFormat(text, "");
         }
         case 'sentence': {
-            strFormat(string, '.');
-            break;
+            return textFormat(text, '.');
         }
         default: {
-            console.log(string);
-            break;
+            return text
         }
     }
 }
 
-function strFormat(string, splitSymbol) {
-    string.split(splitSymbol).forEach(val => console.log(val));
+function textFormat(text, splitSymbol) {
+    return text.split(splitSymbol);
+}
+
+function showText() {
+    console.log('word');
+    console.log(textConverter('Hello John. Lets do some interesting things', 10000, 'word'));
+    console.log('symbol');
+    console.log(textConverter('Hello John. Lets do some interesting things', 10000, 'symbol'));
+    console.log('sentence');
+    console.log(textConverter('Hello John. Lets do some interesting things', 10000, 'sentence'));
 }
 
 let stringCalculator = {
     result: 0,
 
-    plus(b) {
-        this.result = Number(this.result) + Number(b);
+    plus(value) {
+        this.result += Number(value);
+        return this;
     },
 
-    minus(b) {
-        this.result = Number(this.result) - Number(b);
+    minus(value) {
+        this.result -= Number(value);
+        return this;
     },
 
-    multiply(b) {
-        this.result = Number(this.result) * Number(b);
+    multiply(value) {
+        this.result *= Number(value);
+        return this;
     },
 
-    division(b) {
-        this.result = Number(this.result) / Number(b);
+    division(value) {
+        this.result /= Number(value);
+        return this;
     },
 
     showResult() {
-        console.log(this.result)
-        this.plus('12');
-        console.log(this.result)
-        this.minus('5.5');
-        console.log(this.result)
-        this.multiply('2');
-        console.log(this.result)
-        this.division('1.8');
-        console.log(this.result)
+        console.log(
+            this.plus('2')
+                .minus('1.5')
+                .multiply('10')
+                .division('1.7')
+                .result
+        );
+        return this;
     }
 }
 
@@ -256,82 +245,78 @@ let arraySorter = {
     arr: [8, 5, 3, 7, 8, 9, 10, 11, 5, 21, 16, 24],
 
     bubbleSort() {
-        let sortArray = Object.assign([], this.arr);
+        const temp = this.arr.slice();
         let changed = true;
         while (changed === true) {
             changed = false;
-            for (let i = 0; i < sortArray.length - 1; i++) {
-                if (sortArray[i] > sortArray[i + 1]) {
-                    let copy = sortArray[i + 1];
-                    sortArray[i + 1] = sortArray[i];
-                    sortArray[i] = copy;
+            for (let i = 0; i < temp.length - 1; i++) {
+                if (temp[i] > temp[i + 1]) {
+                    let copy = temp[i + 1];
+                    temp[i + 1] = temp[i];
+                    temp[i] = copy;
                     changed = true;
                 }
             }
         }
-
-        console.log(sortArray);
+        return temp;
     },
 
     shellSort() {
-        let sortArray = Object.assign([], this.arr);
-        let i = Math.floor(sortArray.length / 2);
+        const temp = this.arr.slice();
+        let i = Math.floor(temp.length / 2);
         while (i > 0) {
-            for (let j = 0; j < sortArray.length; j++) {
+            for (let j = 0; j < temp.length; j++) {
                 let k = j;
-                let t = sortArray[j];
-                while (k >= i && sortArray[k - i] > t) {
-                    sortArray[k] = sortArray[k - i];
+                let t = temp[j];
+                while (k >= i && temp[k - i] > t) {
+                    temp[k] = temp[k - i];
                     k -= i;
                 }
-                sortArray[k] = t;
+                temp[k] = t;
             }
             i = (i === 2) ? 1 : Math.floor(i * 5 / 11);
         }
-
-        console.log(sortArray);
+        return temp;
     },
 
     insertSort() {
-        let sortArray = Object.assign([], this.arr);
+        const temp = this.arr.slice();
 
-        for (let i = 0; i < sortArray.length; i++) {
-            let v = sortArray[i], j = i - 1;
-            while (j >= 0 && sortArray[j] > v) {
-                sortArray[j + 1] = sortArray[j];
+        for (let i = 0; i < temp.length; i++) {
+            let v = temp[i], j = i - 1;
+            while (j >= 0 && temp[j] > v) {
+                temp[j + 1] = temp[j];
                 j--;
             }
-            sortArray[j + 1] = v;
+            temp[j + 1] = v;
         }
-
-        console.log(sortArray);
+        return temp;
     },
 
     selectionSort() {
-        let sortArray = Object.assign([], this.arr);
+        const temp = this.arr.slice();
 
-        for (let i = 0; i < sortArray.length - 1; i++) {
+        for (let i = 0; i < temp.length - 1; i++) {
             let min = i;
-            for (let j = i + 1; j < sortArray.length; j++) {
-                if (sortArray[j] < sortArray[min]) min = j;
+            for (let j = i + 1; j < temp.length; j++) {
+                if (temp[j] < temp[min]) min = j;
             }
-            const copy = sortArray[min];
-            sortArray[min] = sortArray[i];
-            sortArray[i] = copy;
+            const copy = temp[min];
+            temp[min] = temp[i];
+            temp[i] = copy;
         }
-
-        console.log(sortArray);
+        return temp;
     },
 
     showResult() {
         console.log('bubble sort: ');
-        this.bubbleSort();
+        console.log(this.bubbleSort());
         console.log('Shell Sort: ');
-        this.shellSort();
+        console.log(this.shellSort());
         console.log('Insert sort: ');
-        this.insertSort();
+        console.log(this.insertSort());
         console.log('Selection sort: ');
-        this.selectionSort();
+        console.log(this.selectionSort());
     }
 }
 
@@ -346,14 +331,8 @@ let binaryConverter = {
                 dec += 2 ** i;
             }
         }
-        console.log(dec);
+        return dec;
     },
-
-    // decToBin() {
-    //     const str = "23";
-    //     const bin = (+str).toString(2);
-    //     console.log(bin)
-    // }
 
     decToBin() {
         let binary = '';
@@ -367,14 +346,13 @@ let binaryConverter = {
 
             this.decimal = Math.floor(this.decimal / 2);
         }
-
-        console.log(binary);
+        return binary;
     },
 
     showResult() {
         console.log('Decimal to binary');
-        this.decToBin();
+        console.log(this.decToBin());
         console.log('Binary to decimal');
-        this.binToDec();
+        console.log(this.binToDec());
     }
 }
