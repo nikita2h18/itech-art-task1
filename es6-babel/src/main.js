@@ -1,3 +1,6 @@
+import {increment, double} from './math';
+import {hello} from "./decorators";
+
 @hello
 class World {
     constructor() {
@@ -5,8 +8,6 @@ class World {
     }
 }
 
-function hello() {
-    console.log("Hello");
-}
-
 const w = new World();
+
+console.log(2 |> increment |> double |> increment |> double);
