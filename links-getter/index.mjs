@@ -25,9 +25,7 @@ async function breadthSearch(url) {
     )
 
 
-    if (links.length === 0) {
-        return 'done';
-    } else {
+    if (links.length !== 0) {
         links.forEach(link => {
             if (!visitedLinks.includes(link)) {
                 breadthSearch(link)
