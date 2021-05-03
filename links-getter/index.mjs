@@ -1,15 +1,16 @@
 import fetch from "node-fetch";
 
-let url = 'https://www.calhoun.io/';
+let url = 'https://www.tut.by/';
+let visitedLinks = [];
 
 async function breadthSearch(url) {
-    const getAllHrefs = /href\s*=\s*(['"])(https?:\/\/.+?)\1/ig;
-    const getLinks = /(https?:\/\/[^\s]+)\//g;
-    console.log('url ' + url);
+    const getHref = /href\s*=\s*(['"])(https?:\/\/.+?)\1/ig;
+    const getLink = /(https?:\/\/[^\s]+)\//g;
 
+    visitedLinks.push(url);
     const response = await fetch(url);
     const html = await response.text();
-    const href = await html.match(getAllHrefs);
+    const href = await html.match(getHref);
     let sitePages = [];
 
     await href.forEach(e => {
@@ -20,16 +21,19 @@ async function breadthSearch(url) {
 
     let links = []
     sitePages.forEach(
-        link => links.push(link.match(getLinks))
+        link => links.push(link.match(getLink)[0])
     )
 
-    console.log(links);
 
     if (links.length === 0) {
-        return "Done";
+        return 'done';
     } else {
-        links.forEach(link => breadthSearch(link));
+        links.forEach(link => {
+            if (!visitedLinks.includes(link)) {
+                breadthSearch(link)
+            }
+        });
     }
 }
 
-breadthSearch(url).then(done => console.log(done));
+breadthSearch(url).then(() => console.log(visitedLinks));
