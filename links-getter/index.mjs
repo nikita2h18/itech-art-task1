@@ -1,37 +1,45 @@
 import fetch from "node-fetch";
+import pkg from "node-html-parser";
 
-let url = 'https://www.calhoun.io/';
-let visitedLinks = [];
+const {parse} = pkg;
 
-async function deapSearch(url) {
-    const getHref = /href\s*=\s*(['"])(https?:\/\/.+?)\1/ig;
-    const getLink = /(https?:\/\/[^\s]+)\//g;
+const url = 'https://www.calhoun.io';
+const domain = 'calhoun.io'
+const visitedLinks = [];
 
-    visitedLinks.push(url);
-    const response = await fetch(url);
-    const html = await response.text();
-    const href = await html.match(getHref);
-    let sitePages = [];
+async function getLinks(link) {
+    visitedLinks.push(link);
 
-    await href.forEach(e => {
-        if (e.includes(url)) {
-            sitePages.push(e);
-        }
-    })
-
-    let links = []
-    sitePages.forEach(
-        link => links.push(link.match(getLink)[0])
-    )
-
-
-    if (links.length !== 0) {
-        links.forEach(link => {
-            if (!visitedLinks.includes(link)) {
-                deapSearch(link)
+    const htmlText = await getHtmlText(link);
+    const htmlElements = parse(htmlText).querySelectorAll("a[href]");
+    let siteLinks = [];
+    htmlElements.forEach(
+        htmlElement => {
+            if (htmlElement._attrs.href.includes(domain) &&
+                !htmlElement._attrs.href.includes('mailto') ||
+                htmlElement._attrs.href[0] === '/') {
+                siteLinks.push(htmlElement._attrs.href)
             }
-        });
-    }
+        }
+    );
+
+    siteLinks.forEach(link => {
+        if (!visitedLinks.includes(link) && link !== '/') {
+            getLinks(link)
+        }
+    });
 }
 
-deapSearch(url).then(() => console.log(visitedLinks));
+async function getHtmlText(link) {
+    let response;
+
+    if (link[0] === '/') {
+        response = await fetch(url + link);
+    } else {
+        response = await fetch(link);
+    }
+
+    return response.text();
+}
+
+getLinks(url).then(() => {console.log(visitedLinks)});
