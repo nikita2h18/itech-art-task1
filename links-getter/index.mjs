@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 let url = 'https://www.calhoun.io/';
 let visitedLinks = [];
 
-async function breadthSearch(url) {
+async function deapSearch(url) {
     const getHref = /href\s*=\s*(['"])(https?:\/\/.+?)\1/ig;
     const getLink = /(https?:\/\/[^\s]+)\//g;
 
@@ -28,10 +28,10 @@ async function breadthSearch(url) {
     if (links.length !== 0) {
         links.forEach(link => {
             if (!visitedLinks.includes(link)) {
-                breadthSearch(link)
+                deapSearch(link)
             }
         });
     }
 }
 
-breadthSearch(url).then(() => console.log(visitedLinks));
+deapSearch(url).then(() => console.log(visitedLinks));
