@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 
-let url = 'https://www.tut.by/';
+let url = 'https://www.calhoun.io/';
 let visitedLinks = [];
 
 async function breadthSearch(url) {
