@@ -1,23 +1,34 @@
 import fetch from "node-fetch";
 import pkg from "node-html-parser";
+import {Link} from './Link.mjs'
 
 const {parse} = pkg;
 
 const url = 'https://www.calhoun.io';
 let domain = new URL(url);
 domain = domain.hostname.replace('www.', '');
-const links = new Map();
 let visitedLinks = [];
+visitedLinks.push(new Link(url, false));
 
 async function seenLinks(link) {
-    visitedLinks.push(link)
+    visitedLinks.forEach(l => {
+        if (l.url === link) {
+            l.visited = true;
+        }
+    })
     const htmlText = await getHtmlText(link);
     const htmlElements = parse(htmlText).querySelectorAll("a[href]");
-    const siteLinks = getSiteLinks(htmlElements);
+    getSiteLinks(htmlElements).forEach(l => {
+        if (!visitedLinks.includes(l.url)) {
+            visitedLinks.push(l);
+        }
+    });
 
-    siteLinks.forEach(link => {
-        if (!visitedLinks.includes(link) && link !== '/') {
-            seenLinks(link);
+    visitedLinks.forEach(link => {
+        if (link.url !== '/' && !link.visited) {
+            seenLinks(link.url);
+        } else {
+            return visitedLinks;
         }
     });
 }
@@ -40,8 +51,9 @@ function getSiteLinks(htmlElements) {
         htmlElement => {
             if (htmlElement._attrs.href.includes(domain) &&
                 !htmlElement._attrs.href.includes('mailto') ||
-                htmlElement._attrs.href[0] === '/') {
-                siteLinks.push(htmlElement._attrs.href);
+                htmlElement._attrs.href[0] === '/'
+                && htmlElement._attrs.href[0] !== '/') {
+                siteLinks.push(new Link(htmlElement._attrs.href, false));
             }
         }
     );
