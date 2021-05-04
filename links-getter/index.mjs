@@ -6,7 +6,7 @@ const {parse} = pkg;
 
 const url = 'https://www.calhoun.io';
 let domain = new URL(url);
-domain = domain.hostname.replace('www.', '');
+domain = domain.hostname;
 let visitedLinks = [];
 visitedLinks.push(new Link(url, false));
 
@@ -49,7 +49,7 @@ function getSiteLinks(htmlElements) {
     const siteLinks = [];
     htmlElements.forEach(
         htmlElement => {
-            if (htmlElement._attrs.href.includes(domain) &&
+            if (htmlElement._attrs.href.includes(url) &&
                 !htmlElement._attrs.href.includes('mailto') ||
                 htmlElement._attrs.href[0] === '/'
                 && htmlElement._attrs.href[0] !== '/') {
