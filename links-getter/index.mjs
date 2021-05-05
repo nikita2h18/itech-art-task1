@@ -1,69 +1,61 @@
 import fetch from "node-fetch";
 import pkg from "node-html-parser";
+import {isRelative, isSlashLast} from "./helpers.mjs"
 
 const {parse} = pkg;
 
 const url = 'https://www.calhoun.io';
-let domain = new URL(url);
-domain = domain.hostname;
 
-async function getVisitedLinks(link, visitedLinks = new Map()) {
-    visitedLinks.set(link, true);
-
-    const response = await fetch(link);
-    const htmlText = await getHtmlText(response);
+async function collectPages(page, pages = new Map()) {
+    console.log("Collect: " + page);
+    const htmlText = await getPage(page);
     const htmlElements = parse(htmlText).querySelectorAll("a[href]");
-    visitedLinks = getSiteLinks(htmlElements, visitedLinks);
-    if (isAllVisited(visitedLinks)) {
-        return visitedLinks;
+    pages.set(page, true);
+
+    pages = collectPageLinks(htmlElements, pages);
+    if (isAllVisited(pages)) {
+        return pages;
     }
-    for (let visitedLink of visitedLinks) {
-        if (!visitedLink[1]) {
-            getVisitedLinks(visitedLink[0], visitedLinks).then(res => console.log(res));
+    for (let [link, isSeen] of pages) {
+        if (!isSeen) {
+            return collectPages(link, pages);
         }
     }
 }
 
+async function getPage(href) {
+    const res = await fetch(href);
+    return res.text();
+}
+
 function isAllVisited(visitedLinks) {
-    for (let link of visitedLinks) {
-        if (link[1] === false) {
+    for (let [_, isSeen] of visitedLinks) {
+        if (isSeen) {
             return false;
         }
     }
     return true;
 }
 
-function isRelative(link) {
-    return link[0] === '/';
+function isLinkValid(link) {
+    return link.includes(url) &&
+        !link.includes('mailto') ||
+        link[0] === '/' &&
+        link !== '/';
 }
 
-async function getHtmlText(response) {
-    return response.text();
-}
-
-function isLinkValid(htmlElement) {
-    return htmlElement._attrs.href.includes(url) &&
-        !htmlElement._attrs.href.includes('mailto') ||
-        htmlElement._attrs.href[0] === '/'
-        && htmlElement._attrs.href !== '/';
-}
-
-function isNotVisited(link, visitedLinks) {
-    return !visitedLinks.has(link);
-}
-
-function getSiteLinks(htmlElements, visitedLinks) {
+function collectPageLinks(htmlElements, visitedLinks) {
     htmlElements.forEach(
         htmlElement => {
             let link = htmlElement._attrs.href;
-            if (isLinkValid(htmlElement)) {
+            if (isLinkValid(link)) {
                 if (isRelative(link)) {
                     link = url + link;
                 }
-                if (link[link.length - 1] === '/') {
+                if (isSlashLast) {
                     link = link.substring(0, link.length - 1);
                 }
-                if (isNotVisited(link, visitedLinks)) {
+                if (!visitedLinks.has(link)) {
                     visitedLinks.set(link, false);
                 }
             }
@@ -73,4 +65,4 @@ function getSiteLinks(htmlElements, visitedLinks) {
     return visitedLinks;
 }
 
-getVisitedLinks(url);
+collectPages(url).then(result => result);
