@@ -16,11 +16,10 @@ async function getVisitedLinks(link, visitedLinks = new Map()) {
     visitedLinks = getSiteLinks(htmlElements, visitedLinks);
     if (isAllVisited(visitedLinks)) {
         return visitedLinks;
-    } else {
-        for (let visitedLink of visitedLinks) {
-            if (!visitedLink[1]) {
-                getVisitedLinks(visitedLink[0], visitedLinks);
-            }
+    }
+    for (let visitedLink of visitedLinks) {
+        if (!visitedLink[1]) {
+            getVisitedLinks(visitedLink[0], visitedLinks).then(res => console.log(res));
         }
     }
 }
@@ -74,4 +73,4 @@ function getSiteLinks(htmlElements, visitedLinks) {
     return visitedLinks;
 }
 
-getVisitedLinks(url).then(result => console.log(result));
+getVisitedLinks(url);
