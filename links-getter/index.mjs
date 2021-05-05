@@ -1,64 +1,73 @@
 import fetch from "node-fetch";
 import pkg from "node-html-parser";
-import {Link} from './Link.mjs'
 
 const {parse} = pkg;
 
 const url = 'https://www.calhoun.io';
 let domain = new URL(url);
 domain = domain.hostname;
-let visitedLinks = [];
-visitedLinks.push(new Link(url, false));
 
-async function seenLinks(link) {
-    visitedLinks.forEach(l => {
-        if (l.url === link) {
-            l.visited = true;
-        }
-    })
-    const htmlText = await getHtmlText(link);
+async function getVisitedLinks(link, visitedLinks = new Map()) {
+    visitedLinks.set(link, true);
+
+    const response = await fetch(link);
+    const htmlText = await getHtmlText(response);
     const htmlElements = parse(htmlText).querySelectorAll("a[href]");
-    getSiteLinks(htmlElements).forEach(l => {
-        if (!visitedLinks.includes(l.url)) {
-            visitedLinks.push(l);
-        }
-    });
 
-    visitedLinks.forEach(link => {
-        if (link.url !== '/' && !link.visited) {
-            seenLinks(link.url);
-        } else {
-            return visitedLinks;
-        }
-    });
-}
-
-async function getHtmlText(link) {
-    let response;
-
-    if (link[0] === '/') {
-        response = await fetch(url + link);
-    } else {
-        response = await fetch(link);
+    getSiteLinks(htmlElements, visitedLinks);
+    if (allVisited(visitedLinks)) {
+        return visitedLinks;
     }
 
+    const links = [ ...visitedLinks.keys()];
+    links.forEach(l => {
+        if (!visitedLinks.get(l)) {
+            getVisitedLinks(l, visitedLinks);
+        }
+    })
+}
+
+function allVisited(visitedLinks) {
+    for (let link of visitedLinks) {
+        if (link[1] === false) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function isRelative(link) {
+    return link[0] === '/';
+}
+
+async function getHtmlText(response) {
     return response.text();
 }
 
-function getSiteLinks(htmlElements) {
-    const siteLinks = [];
+function isLinkValid(htmlElement) {
+    return htmlElement._attrs.href.includes(url) &&
+        !htmlElement._attrs.href.includes('mailto') ||
+        htmlElement._attrs.href[0] === '/'
+        && htmlElement._attrs.href !== '/';
+}
+
+function getSiteLinks(htmlElements, visitedLinks) {
     htmlElements.forEach(
         htmlElement => {
-            if (htmlElement._attrs.href.includes(url) &&
-                !htmlElement._attrs.href.includes('mailto') ||
-                htmlElement._attrs.href[0] === '/'
-                && htmlElement._attrs.href[0] !== '/') {
-                siteLinks.push(new Link(htmlElement._attrs.href, false));
+            if (isLinkValid(htmlElement)) {
+                if (isRelative(htmlElement._attrs.href)) {
+                    htmlElement._attrs.href = url + htmlElement._attrs.href;
+                }
+                if (htmlElement._attrs.href[htmlElement._attrs.href.length - 1] === '/') {
+                    visitedLinks.set(htmlElement._attrs.href.substring(0, htmlElement._attrs.href.length - 1), false);
+                } else {
+                    visitedLinks.set(htmlElement._attrs.href, false);
+                }
             }
         }
     );
 
-    return siteLinks;
+    return visitedLinks;
 }
 
-seenLinks(url).then(() => console.log(visitedLinks));
+getVisitedLinks(url).then(result => console.log(result));
