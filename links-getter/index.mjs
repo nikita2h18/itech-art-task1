@@ -6,19 +6,19 @@ const {parse} = pkg;
 
 const url = 'https://www.calhoun.io';
 
-async function collectPages(page, pages = new Map()) {
-    console.log("Collect: " + page);
-    const htmlText = await getPage(page);
+async function collectPages(link, siteLinks = new Map()) {
+    console.log("Collect: " + link);
+    const htmlText = await getPage(link);
     const htmlElements = parse(htmlText).querySelectorAll("a[href]");
-    pages.set(page, true);
+    siteLinks.set(link, true);
 
-    pages = collectPageLinks(htmlElements, pages);
-    if (isAllVisited(pages)) {
-        return pages;
+    siteLinks = collectPageLinks(htmlElements, siteLinks);
+    if (isAllVisited(siteLinks)) {
+        return siteLinks;
     }
-    for (let [link, isSeen] of pages) {
+    for (let [link, isSeen] of siteLinks) {
         if (!isSeen) {
-            return collectPages(link, pages);
+            return collectPages(link, siteLinks);
         }
     }
 }
@@ -52,7 +52,7 @@ function collectPageLinks(htmlElements, visitedLinks) {
                 if (isRelative(link)) {
                     link = url + link;
                 }
-                if (isSlashLast) {
+                if (isSlashLast(link)) {
                     link = deleteLastSlash(link);
                 }
                 if (!visitedLinks.has(link)) {
