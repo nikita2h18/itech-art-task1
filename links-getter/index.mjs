@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 import pkg from "node-html-parser";
-import {isRelative, isSlashLast} from "./helpers.mjs"
+import {deleteLastSlash, isRelative, isSlashLast} from "./helpers.mjs"
 
 const {parse} = pkg;
 
@@ -53,7 +53,7 @@ function collectPageLinks(htmlElements, visitedLinks) {
                     link = url + link;
                 }
                 if (isSlashLast) {
-                    link = link.substring(0, link.length - 1);
+                    link = deleteLastSlash(link);
                 }
                 if (!visitedLinks.has(link)) {
                     visitedLinks.set(link, false);
