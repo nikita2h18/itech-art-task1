@@ -65,4 +65,4 @@ function collectPageLinks(htmlElements, visitedLinks) {
     return visitedLinks;
 }
 
-collectPages(url).then(result => result);
+await collectPages(url);
