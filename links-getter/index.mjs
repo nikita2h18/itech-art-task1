@@ -40,7 +40,7 @@ function isAllVisited(visitedLinks) {
 function isLinkValid(link) {
     return link.includes(url) &&
         !link.includes('mailto') ||
-        link[0] === '/' &&
+        isRelative(link) &&
         link !== '/';
 }
 
