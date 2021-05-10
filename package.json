@@ -9,7 +9,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm lint && git add -a ."
+      "pre-commit": "pretty-quick --staged"
     }
   },
   "devDependencies": {
