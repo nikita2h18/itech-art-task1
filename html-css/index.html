@@ -1,300 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
     <title>Test Page</title>
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header class="header">
-    <div class="header__items container">
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__items container">
         <div class="site-name">SITE NAME</div>
         <ul class="menu">
-            <li class="menu__item">
-                <a class="menu__link" href="#">HOME</a>
-            </li>
-            <li class="menu__item">
-                <a class="menu__link" href="#">ABOUT</a>
-            </li>
-            <li class="menu__item">
-                <a class="menu__link" href="#">SERVICES</a>
-            </li>
-            <li class="menu__item">
-                <a class="menu__link" href="#">PORTFOLIO</a>
-            </li>
-            <li class="menu__item">
-                <a class="menu__link" href="#">CONTACT</a>
-            </li>
+          <li class="menu__item">
+            <a class="menu__link" href="#">HOME</a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="#">ABOUT</a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="#">SERVICES</a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="#">PORTFOLIO</a>
+          </li>
+          <li class="menu__item">
+            <a class="menu__link" href="#">CONTACT</a>
+          </li>
         </ul>
-    </div>
-</header>
+      </div>
+    </header>
 
-<div class="hero">
-    <div class="hero__items container">
-        <img class="hero__icon" src="assets/cir.png" height="70" width="69" alt="icon"/>
+    <div class="hero">
+      <div class="hero__items container">
+        <img
+          class="hero__icon"
+          src="assets/cir.png"
+          height="70"
+          width="69"
+          alt="icon"
+        />
         <div class="hero__info">
-            <p>
-                Clivuam Tinc<br>
-                Nunc Difnissim Risus id Metus
+          <p>
+            Clivuam Tinc<br />
+            Nunc Difnissim Risus id Metus
+          </p>
+          <a class="hero__link" href="http://wallpaperswide.com/"
+            >http://wallpaperswide.com/</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="features">
+      <ul class="features__list container">
+        <li class="card col">
+          <img
+            class="card__image"
+            src="assets/rocket.png"
+            height="70"
+            width="70"
+            alt="rocket"
+          />
+          <div class="card__text">
+            <p class="text-header card__header text-header_second-focus">
+              Aliquam tincidunt
             </p>
-            <a class="hero__link" href="http://wallpaperswide.com/">http://wallpaperswide.com/</a>
-        </div>
+            <p>
+              Donec nec justo eget felis facilisis fermentum. Aliqua porttitor
+              mauris sit amet orci. Aenean dignissim pallentesq
+              <a class="link" href=""> => more </a>
+            </p>
+          </div>
+        </li>
+        <li class="card col">
+          <img
+            class="card__image"
+            src="assets/shield.png"
+            height="70"
+            width="70"
+            alt="shield"
+          />
+          <div class="card__text">
+            <p class="text-header card__header text-header_second-focus">
+              Cras ornare tristuqu
+            </p>
+            <p>
+              Jonec nec justo eget felis facilisis fermentum. Aliqua porttitor
+              mauris sit amet orci. Aenean dignissim pallentesq
+              <a class="link" href=""> => more </a>
+            </p>
+          </div>
+        </li>
+        <li class="card col">
+          <img
+            class="card__image"
+            src="assets/extinguisher.png"
+            height="70"
+            width="70"
+            alt="extinguisher"
+          />
+          <div class="card__text">
+            <p class="text-header card__header text-header_second-focus">
+              Vivamus vestibulum
+            </p>
+            <p>
+              Conec nec justo eget felis facilisis fermentum. Aliqua porttitor
+              mauris sit amet orci. Aenean dignissim pallentesq
+              <a class="link" href=""> => more </a>
+            </p>
+          </div>
+        </li>
+      </ul>
     </div>
-</div>
 
-<div class="features">
-    <ul class="features__list container">
-        <li class="card col">
-            <img class="card__image" src="assets/rocket.png" height="70" width="70" alt="rocket"/>
-            <div class="card__text">
-                <p class="text-header card__header text-header_second-focus">Aliquam tincidunt</p>
-                <p>Donec nec justo eget felis facilisis fermentum.
-                    Aliqua porttitor mauris sit amet orci. Aenean dignissim pallentesq
-                    <a class="link" href=""> => more </a>
-                </p>
-            </div>
-        </li>
-        <li class="card col">
-            <img class="card__image" src="assets/shield.png" height="70" width="70" alt="shield"/>
-            <div class="card__text">
-                <p class="text-header card__header text-header_second-focus">Cras ornare tristuqu</p>
-                <p>Jonec nec justo eget felis facilisis fermentum.
-                    Aliqua porttitor mauris sit amet orci. Aenean dignissim pallentesq
-                    <a class="link" href=""> => more </a>
-                </p>
-            </div>
-        </li>
-        <li class="card col">
-            <img class="card__image" src="assets/extinguisher.png" height="70" width="70" alt="extinguisher"/>
-            <div class="card__text">
-                <p class="text-header card__header text-header_second-focus">Vivamus vestibulum</p>
-                <p>Conec nec justo eget felis facilisis fermentum.
-                    Aliqua porttitor mauris sit amet orci. Aenean dignissim pallentesq
-                    <a class="link" href=""> => more </a>
-                </p>
-            </div>
-        </li>
-    </ul>
-</div>
-
-<div class="news container">
-    <div class="news__content">
+    <div class="news container">
+      <div class="news__content">
         <div class="text-header news__header text-header_second-focus">
-            Donec nec justo eget felis facilisis fermentum. Aliquam porttitor<br>
-            sit amet orci. Aenean dignissism pellentesque felis
+          Donec nec justo eget felis facilisis fermentum. Aliquam porttitor<br />
+          sit amet orci. Aenean dignissism pellentesque felis
         </div>
-        <div class="news__title">
-            Civamus vestibulum nulla nec ante
-        </div>
+        <div class="news__title">Civamus vestibulum nulla nec ante</div>
         <div class="news__list">
-            <article class="article">
-                <p class="article__text article__header">
-                    Sed egestas anteet
-                </p>
-                <p class="article__text">
-                    Eros pede semper est, vitae luctus metus libero eu augue.
-                    Morbi purus libero, faucibus adipiscing commodo quis,
-                    gravida id, est. Sed lectus. Praesent elementum hendrerit
-                    tortor. Ultrices sagittis, mi neque euismod dui, eu pulvinar
-                    nunc sapiern ornare nisl.
-                </p>
+          <article class="article">
+            <p class="article__text article__header">Sed egestas anteet</p>
+            <p class="article__text">
+              Eros pede semper est, vitae luctus metus libero eu augue. Morbi
+              purus libero, faucibus adipiscing commodo quis, gravida id, est.
+              Sed lectus. Praesent elementum hendrerit tortor. Ultrices
+              sagittis, mi neque euismod dui, eu pulvinar nunc sapiern ornare
+              nisl.
+            </p>
 
-                <button class="button article__button button_first-focus">
-                    <p class="button__text">MORE</p>
-                </button>
-            </article>
-            <article class="article">
-                <p class="article__text article__header">
-                    Aenean egestas anteet
-                </p>
-                <p class="article__text">
-                    Lorem pede semper est, vitae luctus metus libero eu augue.
-                    Morbi purus libero, faucibus adipiscing commodo quis,
-                    gravida id, est. Sed lectus. Praesent elementum hendrerit
-                    tortor. Ultrices sagittis, mi neque euismod dui, eu pulvinar
-                    nunc sapiern ornare nisl.
-                </p>
+            <button class="button article__button button_first-focus">
+              <p class="button__text">MORE</p>
+            </button>
+          </article>
+          <article class="article">
+            <p class="article__text article__header">Aenean egestas anteet</p>
+            <p class="article__text">
+              Lorem pede semper est, vitae luctus metus libero eu augue. Morbi
+              purus libero, faucibus adipiscing commodo quis, gravida id, est.
+              Sed lectus. Praesent elementum hendrerit tortor. Ultrices
+              sagittis, mi neque euismod dui, eu pulvinar nunc sapiern ornare
+              nisl.
+            </p>
 
-                <button class="button article__button button_first-focus">
-                    <p class="button__text">MORE</p>
-                </button>
-            </article>
+            <button class="button article__button button_first-focus">
+              <p class="button__text">MORE</p>
+            </button>
+          </article>
         </div>
+      </div>
+      <div class="news__image-container">
+        <img class="news__image" src="assets/circle.png" alt="circle" />
+      </div>
     </div>
-    <div class="news__image-container">
-        <img class="news__image" src="assets/circle.png" alt="circle"/>
-    </div>
-</div>
-<div class="subscription container">
-    <div class="label background_first-focus">
+    <div class="subscription container">
+      <div class="label background_first-focus">
         <div class="card col">
-            <img class="card__image" src="assets/people.png" height="70" width="70" alt="people"/>
-            <div class="label__content">
-                <div class="text-header label__header text-header_white">
-                    Donec nec justo eget
-                </div>
-                <div class="label__text card__text">
-                    “Ede semper est, vitae luctus metus libero eu augue. Morb sipo<br>
-                    ipiscing, commodo quis, gravida ..." -
-                    <a class="label__text label__text_cursive">Kohn Doe/company name</a>
-                </div>
+          <img
+            class="card__image"
+            src="assets/people.png"
+            height="70"
+            width="70"
+            alt="people"
+          />
+          <div class="label__content">
+            <div class="text-header label__header text-header_white">
+              Donec nec justo eget
             </div>
+            <div class="label__text card__text">
+              “Ede semper est, vitae luctus metus libero eu augue. Morb sipo<br />
+              ipiscing, commodo quis, gravida ..." -
+              <a class="label__text label__text_cursive"
+                >Kohn Doe/company name</a
+              >
+            </div>
+          </div>
         </div>
         <div class="subscribe-form col">
-            <div class="text-header label__header text-header_white">
-                Morbi vitae luctus
+          <div class="text-header label__header text-header_white">
+            Morbi vitae luctus
+          </div>
+          <div class="subscribe-form__input">
+            <input
+              class="input"
+              type="text"
+              value="enter your email id here ..."
+            />
+            <div class="subscribe-form__button">
+              <button class="button button_second-focus">
+                <p class="button__text">SUBSCRIBE</p>
+                <img src="assets/arrow.png" alt="arrow" />
+              </button>
             </div>
-            <div class="subscribe-form__input">
-                <input class="input" type="text" value="enter your email id here ...">
-                <div class="subscribe-form__button">
-                    <button class="button button_second-focus">
-                        <p class="button__text">SUBSCRIBE</p>
-                        <img src="assets/arrow.png" alt="arrow"/>
-                    </button>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<div class="contact container">
-    <div class="contact__list col">
-        <div class="text-header contact_header">
-            Aliquam tincidunt
+    <div class="contact container">
+      <div class="contact__list col">
+        <div class="text-header contact_header">Aliquam tincidunt</div>
+        <div class="contact__info card">
+          <div class="card__image">
+            <img src="assets/people1.png" alt="people1" />
+          </div>
+          <div class="card__text">
+            <p>
+              Donec nec justo eget felis facilisis fermentum. Aliquam porttitor
+            </p>
+            <a class="link" href=""> => more </a>
+          </div>
         </div>
         <div class="contact__info card">
-            <div class="card__image">
-                <img src="assets/people1.png" alt="people1"/>
-            </div>
-            <div class="card__text">
-                <p>
-                    Donec nec justo eget felis facilisis fermentum. Aliquam porttitor
-                </p>
-                <a class="link" href=""> => more </a>
-            </div>
+          <div class="card__image">
+            <img src="assets/people2.png" alt="people2" />
+          </div>
+          <div class="card__text">
+            <p>
+              Donec nec justo eget felis facilisis fermentum. Aliquam porttitor
+            </p>
+            <a class="link" href=""> => more </a>
+          </div>
         </div>
         <div class="contact__info card">
-            <div class="card__image">
-                <img src="assets/people2.png" alt="people2"/>
-            </div>
-            <div class="card__text">
-                <p>
-                    Donec nec justo eget felis facilisis fermentum. Aliquam porttitor
-                </p>
-                <a class="link" href=""> => more </a>
-            </div>
+          <div class="card__image">
+            <img src="assets/people3.png" alt="people3" />
+          </div>
+          <div class="card__text">
+            <p>
+              Donec nec justo eget felis facilisis fermentum. Aliquam porttitor
+            </p>
+            <a class="link" href=""> => more </a>
+          </div>
         </div>
-        <div class="contact__info card">
-            <div class="card__image">
-                <img src="assets/people3.png" alt="people3"/>
-            </div>
-            <div class="card__text">
-                <p>
-                    Donec nec justo eget felis facilisis fermentum. Aliquam porttitor
-                </p>
-                <a class="link" href=""> => more </a>
-            </div>
-        </div>
-    </div>
-    <div class="contact__list col">
-        <div class="text-header contact_header">
-            Nunc dignissim risu
-        </div>
+      </div>
+      <div class="contact__list col">
+        <div class="text-header contact_header">Nunc dignissim risu</div>
 
         <form class="form">
-            <div class="form__text">
-                Sed egestas, ante et vulputate volutpat, eros pede
-                semper est, vitae luctus metus liber
-            </div>
-            <div class="form__item">
-                <input class="input" type="text" value="name ...">
-            </div>
-            <div class="form__item">
-                <input class="input" type="text" value="email ...">
-            </div>
-            <div class="form__item">
-                <input class="question_query" type="text" value="your query ...">
-            </div>
-            <div class="form__item">
-                <button class="button button_first-focus">
-                    <p class="button__text">SEND</p>
-                    <img src="assets/arrow.png" alt="arrow"/>
-                </button>
-            </div>
+          <div class="form__text">
+            Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae
+            luctus metus liber
+          </div>
+          <div class="form__item">
+            <input class="input" type="text" value="name ..." />
+          </div>
+          <div class="form__item">
+            <input class="input" type="text" value="email ..." />
+          </div>
+          <div class="form__item">
+            <input class="question_query" type="text" value="your query ..." />
+          </div>
+          <div class="form__item">
+            <button class="button button_first-focus">
+              <p class="button__text">SEND</p>
+              <img src="assets/arrow.png" alt="arrow" />
+            </button>
+          </div>
         </form>
+      </div>
+      <div class="contact__list credentials col">
+        <div class="text-header contact_header">Aliquam tincidunt</div>
+        <div class="contact__info card">
+          <div class="card__image">
+            <img src="assets/home.png" alt="home" />
+          </div>
+          <div class="card__text">
+            <p class="credentials__title">Address</p>
+            <a
+              class="contact-link"
+              href="https://goo.gl/maps/5r9cUH65M9R7st9B7"
+            >
+              some block, steet number, city name,<br />
+              country</a
+            >
+          </div>
+        </div>
+        <div class="contact__info card">
+          <div class="card__image">
+            <img src="assets/phone.png" alt="phone" />
+          </div>
+          <div class="card__text">
+            <p class="credentials__title">Phone</p>
+            <a class="contact-link" href="tel:+1234567890">
+              (000) 777 777 7777<br />
+            </a>
+            <a class="contact-link card" href="tel:+1234567890">
+              (000) 888 888 8888
+            </a>
+          </div>
+        </div>
+        <div class="contact__info card">
+          <div class="card__image">
+            <img src="assets/mail.png" alt="mail" />
+          </div>
+          <div class="card__text">
+            <p class="credentials__title">Email us</p>
+            <a class="contact-link" href="mailto:some@example.com"
+              >info@siteneme.com<br
+            /></a>
+            <a class="contact-link" href="mailto:some@example.com"
+              >sales@sitename.com<br
+            /></a>
+            <a class="contact-link" href="mailto:some@example.com"
+              >company@sitename.</a
+            >
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="contact__list credentials col">
-        <div class="text-header contact_header">
-            Aliquam tincidunt
-        </div>
-        <div class="contact__info card">
-            <div class="card__image">
-                <img src="assets/home.png" alt="home"/>
-            </div>
-            <div class="card__text">
-                <p class="credentials__title">Address</p>
-                <a class="contact-link" href="https://goo.gl/maps/5r9cUH65M9R7st9B7">
-                    some block, steet number, city name,<br>
-                    country</a>
-            </div>
-        </div>
-        <div class="contact__info card">
-            <div class="card__image">
-                <img src="assets/phone.png" alt="phone"/>
-            </div>
-            <div class="card__text">
-                <p class="credentials__title">Phone</p>
-                <a class="contact-link" href="tel:+1234567890">
-                    (000) 777 777 7777<br>
-                </a>
-                <a class="contact-link card" href="tel:+1234567890">
-                    (000) 888 888 8888
-                </a>
-            </div>
-        </div>
-        <div class="contact__info card">
-            <div class="card__image">
-                <img src="assets/mail.png" alt="mail"/>
-            </div>
-            <div class="card__text">
-                <p class="credentials__title">Email us</p>
-                <a class="contact-link" href="mailto:some@example.com">info@siteneme.com<br></a>
-                <a class="contact-link" href="mailto:some@example.com">sales@sitename.com<br></a>
-                <a class="contact-link" href="mailto:some@example.com">company@sitename.</a>
-            </div>
-        </div>
-    </div>
-</div>
-<footer class="footer">
-    <div class="information container">
+    <footer class="footer">
+      <div class="information container">
         <div>
-            <div class="navigation">
-                <a class="navigation__link" href="#">Home</a>
-                /
-                <a class="navigation__link" href="#">About</a>
-                /
-                <a class="navigation__link" href="#">Services</a>
-                /
-                <a class="navigation__link" href="#">Portfolio</a>
-                /
-                <a class="navigation__link" href="#">Contact</a>
-            </div>
-            <div class="designer">
-                <a class="designer__text  designer__text_special" href="#">
-                    Designed by: www.alltemplateneeds.com /
-                </a>
-                <a class="designer__text  designer__text_default" href="#">
-                    Images from: www.wallpaperswide.com/Copyriight(c) website name.
-                </a>
-            </div>
+          <div class="navigation">
+            <a class="navigation__link" href="#">Home</a>
+            /
+            <a class="navigation__link" href="#">About</a>
+            /
+            <a class="navigation__link" href="#">Services</a>
+            /
+            <a class="navigation__link" href="#">Portfolio</a>
+            /
+            <a class="navigation__link" href="#">Contact</a>
+          </div>
+          <div class="designer">
+            <a class="designer__text designer__text_special" href="#">
+              Designed by: www.alltemplateneeds.com /
+            </a>
+            <a class="designer__text designer__text_default" href="#">
+              Images from: www.wallpaperswide.com/Copyriight(c) website name.
+            </a>
+          </div>
         </div>
         <div class="social">
-            <img class="social__icon" src="assets/facebook.png" height="43" width="43" alt="facebook"/>
-            <img class="social__icon" src="assets/twitter.png" height="43" width="43" alt="twitter"/>
-            <img class="social__icon" src="assets/inst.png" height="43" width="43" alt="inst"/>
+          <img
+            class="social__icon"
+            src="assets/facebook.png"
+            height="43"
+            width="43"
+            alt="facebook"
+          />
+          <img
+            class="social__icon"
+            src="assets/twitter.png"
+            height="43"
+            width="43"
+            alt="twitter"
+          />
+          <img
+            class="social__icon"
+            src="assets/inst.png"
+            height="43"
+            width="43"
+            alt="inst"
+          />
         </div>
-    </div>
-</footer>
-</body>
+      </div>
+    </footer>
+  </body>
 </html>

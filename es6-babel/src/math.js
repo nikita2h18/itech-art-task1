@@ -1,7 +1,7 @@
 export function increment(x) {
-    return x + 1;
+  return x + 1;
 }
 
 export function double(x) {
-    return x * 2;
+  return x * 2;
 }
