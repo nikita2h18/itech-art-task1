@@ -348,7 +348,7 @@ let binaryConverter = {
     return binary;
   },
 
-  showResult() {
+      showResult() {
     console.log("Decimal to binary");
     console.log(this.decToBin());
     console.log("Binary to decimal");
