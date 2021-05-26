@@ -6,9 +6,7 @@ const getUsernames = (keys: string) => {
     return ajax(`https://jsonplaceholder.typicode.com/users`).pipe(
         map((ajaxResponse: AjaxResponse<any>) => ajaxResponse.response
             .map((user: { username: string }) => user.username)
-            .filter((username: string) => {
-                return username.toLowerCase().indexOf(keys.toLowerCase()) > -1;
-            })
+            .filter((username: string) => username.toLowerCase().indexOf(keys.toLowerCase()) > -1)
         )
     )
 }
